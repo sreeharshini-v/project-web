@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remove Duplicates</title>
+</head>
+<body>
+
+<h2>Remove Duplicate Elements</h2>
+
+<input type="text"
+       id="array"
+       placeholder="Example: 1,2,2,3,3,4">
+
+<button onclick="removeDuplicates()">Remove</button>
+
+<p id="output"></p>
+
+<script>
+function removeDuplicates() {
+
+    let input = document.getElementById("array").value;
+
+    let array = input
+        .split(",")
+        .map(function(item) {
+            return item.trim();
+        });
+
+    let uniqueArray = [...new Set(array)];
+
+    document.getElementById("output").innerHTML =
+        "Array without duplicates: " +
+        uniqueArray.join(", ");
+}
+</script>
+
+</body>
+</html>

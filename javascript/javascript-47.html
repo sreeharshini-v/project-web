@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Webpage</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        header {
+            padding: 25px;
+            background: #333;
+            color: white;
+        }
+
+        section {
+            padding: 30px;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #counter {
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>My Interactive Webpage</h1>
+</header>
+
+<section>
+
+    <h2 id="heading">Welcome!</h2>
+
+    <button onclick="changeText()">Change Text</button>
+    <button onclick="changeBackground()">Change Background</button>
+
+    <h2>Counter</h2>
+
+    <div id="counter">0</div>
+
+    <button onclick="decrease()">-</button>
+    <button onclick="increase()">+</button>
+    <button onclick="reset()">Reset</button>
+
+</section>
+
+<script>
+let count = 0;
+
+function changeText() {
+    document.getElementById("heading").innerHTML =
+        "You clicked the button!";
+}
+
+function changeBackground() {
+    document.body.style.backgroundColor = "lightblue";
+}
+
+function increase() {
+    count++;
+    updateCounter();
+}
+
+function decrease() {
+    count--;
+    updateCounter();
+}
+
+function reset() {
+    count = 0;
+    updateCounter();
+}
+
+function updateCounter() {
+    document.getElementById("counter").innerHTML = count;
+}
+</script>
+
+</body>
+</html>

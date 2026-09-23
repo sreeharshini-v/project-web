@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            width: 450px;
+            margin: 50px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Feedback Form</h2>
+
+    <form id="feedbackForm">
+
+        <input type="text" id="name" placeholder="Your Name">
+        <p class="error" id="nameError"></p>
+
+        <input type="email" id="email" placeholder="Your Email">
+        <p class="error" id="emailError"></p>
+
+        <select id="rating">
+            <option value="">Select Rating</option>
+            <option value="5">Excellent</option>
+            <option value="4">Very Good</option>
+            <option value="3">Good</option>
+            <option value="2">Poor</option>
+            <option value="1">Very Poor</option>
+        </select>
+
+        <p class="error" id="ratingError"></p>
+
+        <textarea id="feedback"
+                  placeholder="Write your feedback"></textarea>
+        <p class="error" id="feedbackError"></p>
+
+        <button type="submit">Submit Feedback</button>
+
+        <p class="success" id="success"></p>
+    </form>
+
+</div>
+
+<script>
+    document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let rating = document.getElementById("rating").value;
+        let feedback = document.getElementById("feedback").value.trim();
+
+        document.querySelectorAll(".error").forEach(function(element) {
+            element.textContent = "";
+        });
+
+        document.getElementById("success").textContent = "";
+
+        let valid = true;
+
+        if (name === "") {
+            document.getElementById("nameError").textContent =
+                "Name is required";
+            valid = false;
+        }
+
+        if (email === "") {
+            document.getElementById("emailError").textContent =
+                "Email is required";
+            valid = false;
+        }
+
+        if (rating === "") {
+            document.getElementById("ratingError").textContent =
+                "Please select a rating";
+            valid = false;
+        }
+
+        if (feedback.length < 10) {
+            document.getElementById("feedbackError").textContent =
+                "Feedback must contain at least 10 characters";
+            valid = false;
+        }
+
+        if (valid) {
+            document.getElementById("success").textContent =
+                "Thank you for your feedback!";
+        }
+    });
+</script>
+
+</body>
+</html>

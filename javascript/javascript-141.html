@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Select Options Dynamically</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        input {
+            padding: 10px;
+            width: 250px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        select {
+            display: block;
+            width: 280px;
+            padding: 10px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Add Options Dynamically</h1>
+
+    <input type="text"
+           id="optionText"
+           placeholder="Enter option">
+
+    <button onclick="addOption()">
+        Add Option
+    </button>
+
+    <select id="mySelect">
+        <option value="">Select an option</option>
+    </select>
+
+    <script>
+        function addOption() {
+
+            let input =
+                document.getElementById("optionText");
+
+            let value = input.value.trim();
+
+            if (value === "") {
+                alert("Please enter an option.");
+                return;
+            }
+
+            let select =
+                document.getElementById("mySelect");
+
+            let option =
+                document.createElement("option");
+
+            option.value = value;
+            option.textContent = value;
+
+            select.appendChild(option);
+
+            input.value = "";
+            input.focus();
+        }
+    </script>
+
+</body>
+</html>

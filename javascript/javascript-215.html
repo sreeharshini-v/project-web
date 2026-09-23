@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Admission Form</title>
+</head>
+<body>
+
+<h2>College Admission Form</h2>
+
+<form id="form">
+
+    <input type="text" id="name" placeholder="Student Name"><br><br>
+
+    <input type="email" id="email" placeholder="Email"><br><br>
+
+    <input type="text" id="phone" placeholder="Mobile Number"><br><br>
+
+    <input type="number" id="marks" placeholder="12th Marks"><br><br>
+
+    <select id="course">
+        <option value="">Select Course</option>
+        <option>BCA</option>
+        <option>B.Tech</option>
+        <option>B.Sc</option>
+        <option>MCA</option>
+    </select>
+
+    <br><br>
+
+    <label>
+        <input type="checkbox" id="terms">
+        I agree to the admission terms.
+    </label>
+
+    <br><br>
+
+    <button type="submit">Apply</button>
+</form>
+
+<p id="message"></p>
+
+<script>
+document.getElementById("form").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const marks = Number(document.getElementById("marks").value);
+    const course = document.getElementById("course").value;
+    const terms = document.getElementById("terms").checked;
+
+    const message = document.getElementById("message");
+
+    if (!/^[A-Za-z ]+$/.test(name)) {
+        message.textContent = "Enter a valid name.";
+        return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        message.textContent = "Enter a valid email.";
+        return;
+    }
+
+    if (!/^[6-9][0-9]{9}$/.test(phone)) {
+        message.textContent = "Enter a valid mobile number.";
+        return;
+    }
+
+    if (marks < 0 || marks > 100 || isNaN(marks)) {
+        message.textContent = "Enter marks between 0 and 100.";
+        return;
+    }
+
+    if (course === "") {
+        message.textContent = "Select a course.";
+        return;
+    }
+
+    if (!terms) {
+        message.textContent = "Accept the terms.";
+        return;
+    }
+
+    message.textContent = "Admission form submitted successfully!";
+});
+</script>
+
+</body>
+</html>

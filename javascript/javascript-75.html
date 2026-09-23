@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Delete Table Rows</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 600px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Add and Delete Rows</h2>
+
+<input type="text" id="name" placeholder="Name">
+<input type="number" id="age" placeholder="Age">
+
+<button onclick="addRow()">Add Row</button>
+
+<br><br>
+
+<table id="studentTable">
+
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Action</th>
+    </tr>
+
+</table>
+
+<script>
+function addRow() {
+
+    let name = document.getElementById("name").value;
+    let age = document.getElementById("age").value;
+
+    if (name === "" || age === "") {
+        alert("Enter all details.");
+        return;
+    }
+
+    let table = document.getElementById("studentTable");
+
+    let row = table.insertRow();
+
+    row.insertCell(0).innerHTML = name;
+    row.insertCell(1).innerHTML = age;
+
+    let deleteCell = row.insertCell(2);
+
+    let button = document.createElement("button");
+
+    button.innerHTML = "Delete";
+
+    button.onclick = function() {
+        row.remove();
+    };
+
+    deleteCell.appendChild(button);
+
+    document.getElementById("name").value = "";
+    document.getElementById("age").value = "";
+}
+</script>
+
+</body>
+</html>

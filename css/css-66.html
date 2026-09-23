@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2D and 3D Transformations</title>
+
+    <style>
+        .container {
+            display: flex;
+            gap: 100px;
+            padding: 100px;
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            background: blue;
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            transition: transform 1s;
+        }
+
+        .two-d:hover {
+            transform: rotate(45deg) scale(1.2);
+        }
+
+        .three-d {
+            transform-style: preserve-3d;
+        }
+
+        .three-d:hover {
+            transform: rotateX(60deg) rotateY(45deg);
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>2D and 3D Transformations</h1>
+
+<div class="container">
+
+    <div class="box two-d">
+        2D Transform
+    </div>
+
+    <div class="box three-d">
+        3D Transform
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ES6 Features</title>
+</head>
+<body>
+
+<h2>ES6 JavaScript Features</h2>
+
+<p id="output"></p>
+
+<script>
+// let
+let name = "Harshini";
+
+// const
+const course = "JavaScript";
+
+// Template literal
+let message = `Hello ${name}! You are learning ${course}.`;
+
+// Destructuring
+let student = {
+    age: 20,
+    city: "Chennai"
+};
+
+let { age, city } = student;
+
+document.getElementById("output").innerHTML =
+    message + "<br>" +
+    "Age: " + age + "<br>" +
+    "City: " + city;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS calc() Function</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+        }
+
+        header {
+            height: 80px;
+            background: #333;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            width: calc(100% - 80px);
+            min-height: calc(100vh - 140px);
+            margin: 30px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .container h2 {
+            color: #333;
+        }
+
+        .boxes {
+            display: flex;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .box {
+            width: calc(50% - 10px);
+            padding: 30px;
+            background: #4CAF50;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .box2 {
+            width: calc(100% - 40px);
+            margin: 25px auto 0;
+            padding: 25px;
+            background: #2196F3;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .info {
+            margin-top: 25px;
+            padding: 20px;
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            line-height: 1.6;
+        }
+
+        footer {
+            height: 60px;
+            background: #333;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: calc(100% - 30px);
+                padding: 20px;
+            }
+
+            .boxes {
+                flex-direction: column;
+            }
+
+            .box {
+                width: 100%;
+            }
+
+            .box2 {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>CSS calc() Function</h1>
+    </header>
+
+    <main class="container">
+
+        <h2>Demonstration of CSS calc()</h2>
+
+        <p>
+            The CSS <strong>calc()</strong> function allows mathematical
+            calculations to be performed while defining CSS property values.
+        </p>
+
+        <div class="boxes">
+
+            <div class="box">
+                <h3>Box 1</h3>
+                <p>Width: calc(50% - 10px)</p>
+            </div>
+
+            <div class="box">
+                <h3>Box 2</h3>
+                <p>Width: calc(50% - 10px)</p>
+            </div>
+
+        </div>
+
+        <div class="box2">
+            <h3>Full Width Box</h3>
+            <p>Width: calc(100% - 40px)</p>
+        </div>
+
+        <div class="info">
+            <strong>Examples of calc():</strong>
+            <br>
+            width: calc(100% - 80px);
+            <br>
+            width: calc(50% - 10px);
+            <br>
+            min-height: calc(100vh - 140px);
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CSS Practical</p>
+    </footer>
+
+</body>
+</html>

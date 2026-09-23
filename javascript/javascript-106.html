@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Clock</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #111;
+            color: white;
+            text-align: center;
+        }
+
+        .clock {
+            margin-top: 150px;
+            font-size: 70px;
+            font-weight: bold;
+        }
+
+        #date {
+            font-size: 25px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Digital Clock</h1>
+
+<div class="clock" id="clock"></div>
+<div id="date"></div>
+
+<script>
+    function updateClock() {
+
+        let now = new Date();
+
+        let hours = String(now.getHours()).padStart(2, "0");
+        let minutes = String(now.getMinutes()).padStart(2, "0");
+        let seconds = String(now.getSeconds()).padStart(2, "0");
+
+        document.getElementById("clock").textContent =
+            hours + ":" + minutes + ":" + seconds;
+
+        document.getElementById("date").textContent =
+            now.toDateString();
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+</script>
+
+</body>
+</html>

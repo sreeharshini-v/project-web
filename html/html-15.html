@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Portfolio</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        nav {
+            background-color: #444;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .skills {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .skill {
+            background-color: lightblue;
+            padding: 15px 25px;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media screen and (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 10px;
+            }
+
+            section {
+                margin: 15px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>My Portfolio</h1>
+        <p>Web Developer | Student | Programmer</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about">
+        <h2>About Me</h2>
+
+        <p>
+            Hello! I am a student interested in web development
+            and programming. I enjoy creating websites and learning
+            new technologies.
+        </p>
+    </section>
+
+    <section id="skills">
+        <h2>My Skills</h2>
+
+        <div class="skills">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">Python</div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+
+        <h3>Project 1 - Student Registration</h3>
+        <p>
+            A student registration webpage created using HTML and CSS.
+        </p>
+
+        <h3>Project 2 - College Timetable</h3>
+        <p>
+            A responsive college timetable created using HTML tables.
+        </p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+
+        <p>Email: student@example.com</p>
+        <p>Phone: +91 98765 43210</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 My Portfolio. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

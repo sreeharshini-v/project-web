@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change HTML Attributes</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        img {
+            width: 250px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Change Image Attribute</h1>
+
+    <img id="myImage"
+         src="https://via.placeholder.com/250x150?text=Image+1"
+         alt="Image 1">
+
+    <br>
+
+    <button onclick="changeImage()">
+        Change Image
+    </button>
+
+    <script>
+        function changeImage() {
+
+            let image =
+                document.getElementById("myImage");
+
+            image.setAttribute(
+                "src",
+                "https://via.placeholder.com/250x150?text=Image+2"
+            );
+
+            image.setAttribute(
+                "alt",
+                "Image 2"
+            );
+        }
+    </script>
+
+</body>
+</html>

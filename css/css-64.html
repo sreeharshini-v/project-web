@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mobile First Design</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card {
+            background: #eeeeee;
+            padding: 30px;
+            text-align: center;
+        }
+
+        /* Tablet */
+        @media (min-width: 600px) {
+            .cards {
+                flex-direction: row;
+            }
+
+            .card {
+                flex: 1;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1000px) {
+            .container {
+                max-width: 1200px;
+                margin: auto;
+            }
+
+            .card {
+                padding: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Mobile First Website</h1>
+</header>
+
+<div class="container">
+
+    <h2>Our Services</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Design</h3>
+            <p>Creative designs.</p>
+        </div>
+
+        <div class="card">
+            <h3>Development</h3>
+            <p>Modern development.</p>
+        </div>
+
+        <div class="card">
+            <h3>Support</h3>
+            <p>Technical support.</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

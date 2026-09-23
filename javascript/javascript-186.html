@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keyboard Typing Test</title>
+
+    <style>
+        #text {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 500px;
+            height: 120px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Keyboard Typing Test</h2>
+
+<p>Type the following sentence:</p>
+
+<p id="text">
+    JavaScript makes webpages interactive.
+</p>
+
+<textarea id="input" placeholder="Start typing here..."></textarea>
+
+<p>Time: <span id="time">0</span> seconds</p>
+
+<p>Characters Typed: <span id="count">0</span></p>
+
+<p id="result"></p>
+
+<script>
+const input = document.getElementById("input");
+const count = document.getElementById("count");
+const time = document.getElementById("time");
+const target = document.getElementById("text").textContent.trim();
+const result = document.getElementById("result");
+
+let seconds = 0;
+let timer = null;
+
+input.addEventListener("input", function() {
+
+    count.textContent = input.value.length;
+
+    if (input.value.length === 1 && timer === null) {
+
+        timer = setInterval(function() {
+            seconds++;
+            time.textContent = seconds;
+        }, 1000);
+    }
+
+    if (input.value === target) {
+
+        clearInterval(timer);
+
+        result.textContent =
+            "Test completed in " + seconds + " seconds!";
+
+        input.disabled = true;
+    }
+});
+</script>
+
+</body>
+</html>

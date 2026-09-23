@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced JavaScript Lab</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        .section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #output {
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Advanced JavaScript Lab Questions</h1>
+
+    <div class="section">
+
+        <h2>ES6 Features</h2>
+
+        <p id="es6Output"></p>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Spread and Rest Operators</h2>
+
+        <p id="spreadOutput"></p>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Classes and Objects</h2>
+
+        <p id="classOutput"></p>
+
+    </div>
+
+</div>
+
+<script>
+
+    // ==========================================
+    // 1. LET AND CONST
+    // ==========================================
+
+    let studentName = "Harshini";
+    const course = "JavaScript";
+
+    // ==========================================
+    // 2. TEMPLATE LITERALS
+    // ==========================================
+
+    let message = `Hello ${studentName}! 
+You are learning ${course}.`;
+
+    // ==========================================
+    // 3. DESTRUCTURING
+    // ==========================================
+
+    let student = {
+        name: "Harshini",
+        age: 20,
+        city: "Chennai"
+    };
+
+    let { name, age, city } = student;
+
+    document.getElementById("es6Output").innerHTML =
+        "<b>let:</b> " + studentName + "<br>" +
+        "<b>const:</b> " + course + "<br>" +
+        "<b>Template Literal:</b> " + message + "<br>" +
+        "<b>Destructuring Name:</b> " + name + "<br>" +
+        "<b>Destructuring Age:</b> " + age + "<br>" +
+        "<b>Destructuring City:</b> " + city;
+
+
+    // ==========================================
+    // 4. SPREAD OPERATOR
+    // ==========================================
+
+    let numbers1 = [1, 2, 3];
+    let numbers2 = [4, 5, 6];
+
+    let combinedNumbers = [...numbers1, ...numbers2];
+
+
+    // ==========================================
+    // 5. REST OPERATOR
+    // ==========================================
+
+    function calculateSum(...numbers) {
+
+        let total = 0;
+
+        for (let number of numbers) {
+            total += number;
+        }
+
+        return total;
+    }
+
+    let total = calculateSum(10, 20, 30, 40);
+
+    document.getElementById("spreadOutput").innerHTML =
+        "<b>First Array:</b> " + numbers1.join(", ") + "<br>" +
+        "<b>Second Array:</b> " + numbers2.join(", ") + "<br>" +
+        "<b>Spread Result:</b> " + combinedNumbers.join(", ") + "<br>" +
+        "<b>Rest Operator Sum:</b> " + total;
+
+
+    // ==========================================
+    // 6. CLASS
+    // ==========================================
+
+    class Student {
+
+        constructor(name, age, course) {
+            this.name = name;
+            this.age = age;
+            this.course = course;
+        }
+
+        displayDetails() {
+            return `
+                Name: ${this.name}<br>
+                Age: ${this.age}<br>
+                Course: ${this.course}
+            `;
+        }
+    }
+
+
+    // ==========================================
+    // 7. OBJECT
+    // ==========================================
+
+    let student1 = new Student(
+        "Harshini",
+        20,
+        "Computer Science"
+    );
+
+    document.getElementById("classOutput").innerHTML =
+        student1.displayDetails();
+
+</script>
+
+</body>
+</html>

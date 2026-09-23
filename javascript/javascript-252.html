@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiple Values</title>
+</head>
+<body>
+
+<h2>Store Multiple Values</h2>
+
+<button onclick="saveData()">Save Data</button>
+
+<script>
+function saveData() {
+    localStorage.setItem("name", "Harshini");
+    localStorage.setItem("age", "20");
+    localStorage.setItem("course", "BCA");
+
+    alert("Multiple values stored!");
+}
+</script>
+
+</body>
+</html>

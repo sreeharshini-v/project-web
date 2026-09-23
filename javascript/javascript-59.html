@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Frequency</title>
+</head>
+<body>
+
+<h2>Frequency of Each Element</h2>
+
+<input type="text"
+       id="array"
+       placeholder="Example: apple,banana,apple">
+
+<button onclick="findFrequency()">Find Frequency</button>
+
+<p id="output"></p>
+
+<script>
+function findFrequency() {
+
+    let array = document.getElementById("array")
+        .value
+        .split(",")
+        .map(item => item.trim())
+        .filter(item => item !== "");
+
+    let frequency = {};
+
+    for (let element of array) {
+
+        if (frequency[element]) {
+            frequency[element]++;
+        } else {
+            frequency[element] = 1;
+        }
+    }
+
+    let output = "";
+
+    for (let element in frequency) {
+        output +=
+            element + " : " +
+            frequency[element] + "<br>";
+    }
+
+    document.getElementById("output").innerHTML = output;
+}
+</script>
+
+</body>
+</html>

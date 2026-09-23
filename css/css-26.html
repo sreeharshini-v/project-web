@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inheritance and Specificity</title>
+    <style>
+        body {
+            color: blue;
+            font-family: Arial;
+        }
+
+        p {
+            color: green;
+        }
+
+        .special {
+            color: orange;
+        }
+
+        #unique {
+            color: red;
+        }
+
+        p {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>CSS Inheritance and Specificity</h1>
+
+<p>Element selector</p>
+<p class="special">Class selector has higher specificity.</p>
+<p id="unique" class="special">ID selector has higher specificity.</p>
+
+</body>
+</html>

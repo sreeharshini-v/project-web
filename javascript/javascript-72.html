@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Query Selector</title>
+</head>
+<body>
+
+<h2 class="heading">Heading</h2>
+
+<p class="text">Paragraph 1</p>
+<p class="text">Paragraph 2</p>
+<p class="text">Paragraph 3</p>
+
+<button onclick="selectElements()">Select</button>
+
+<script>
+function selectElements() {
+
+    // Select first matching element
+    let heading = document.querySelector(".heading");
+
+    heading.style.color = "red";
+
+    // Select all matching elements
+    let paragraphs =
+        document.querySelectorAll(".text");
+
+    paragraphs.forEach(function(paragraph) {
+
+        paragraph.style.backgroundColor = "lightyellow";
+        paragraph.style.padding = "10px";
+
+    });
+}
+</script>
+
+</body>
+</html>

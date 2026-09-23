@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup Form</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #eef2f3;
+        }
+
+        .container {
+            width: 400px;
+            margin: 70px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border: none;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Signup Form</h2>
+
+    <form id="signupForm">
+
+        <input type="text" id="username" placeholder="Username">
+        <p class="error" id="usernameError"></p>
+
+        <input type="email" id="email" placeholder="Email">
+        <p class="error" id="emailError"></p>
+
+        <input type="password" id="password" placeholder="Password">
+        <p class="error" id="passwordError"></p>
+
+        <input type="password" id="confirmPassword"
+               placeholder="Confirm Password">
+        <p class="error" id="confirmError"></p>
+
+        <button type="submit">Sign Up</button>
+
+        <p class="success" id="success"></p>
+    </form>
+</div>
+
+<script>
+    document.getElementById("signupForm").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        let username = document.getElementById("username").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let password = document.getElementById("password").value;
+        let confirmPassword =
+            document.getElementById("confirmPassword").value;
+
+        document.querySelectorAll(".error").forEach(function(element) {
+            element.textContent = "";
+        });
+
+        document.getElementById("success").textContent = "";
+
+        let valid = true;
+
+        if (username === "") {
+            document.getElementById("usernameError").textContent =
+                "Username is required";
+            valid = false;
+        }
+
+        if (email === "") {
+            document.getElementById("emailError").textContent =
+                "Email is required";
+            valid = false;
+        }
+
+        if (password.length < 6) {
+            document.getElementById("passwordError").textContent =
+                "Password must contain at least 6 characters";
+            valid = false;
+        }
+
+        if (confirmPassword !== password) {
+            document.getElementById("confirmError").textContent =
+                "Passwords do not match";
+            valid = false;
+        }
+
+        if (valid) {
+            document.getElementById("success").textContent =
+                "Signup successful!";
+        }
+    });
+</script>
+
+</body>
+</html>

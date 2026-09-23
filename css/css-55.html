@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Website</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        header {
+            background: navy;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        nav {
+            background: #222;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: #e8f0ff;
+        }
+
+        .courses {
+            display: flex;
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .course {
+            flex: 1;
+            padding: 30px;
+            background: #eee;
+            text-align: center;
+        }
+
+        footer {
+            background: navy;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media(max-width:600px) {
+            .courses {
+                flex-direction: column;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>ABC College</h1>
+    <p>Education for a Better Future</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Courses</a>
+    <a href="#">Admissions</a>
+    <a href="#">Contact</a>
+</nav>
+
+<section class="hero">
+    <h1>Welcome to ABC College</h1>
+    <p>Build your future with quality education.</p>
+</section>
+
+<section class="courses">
+    <div class="course">
+        <h2>Computer Science</h2>
+        <p>Modern computing education.</p>
+    </div>
+
+    <div class="course">
+        <h2>Commerce</h2>
+        <p>Business and finance studies.</p>
+    </div>
+
+    <div class="course">
+        <h2>Science</h2>
+        <p>Explore science and technology.</p>
+    </div>
+</section>
+
+<footer>
+    © 2026 ABC College
+</footer>
+
+</body>
+</html>

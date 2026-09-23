@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Events</title>
+
+    <style>
+        #box {
+            width: 300px;
+            height: 150px;
+            background-color: lightblue;
+            margin: 30px auto;
+            text-align: center;
+            padding-top: 50px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Mouse Events Demonstration</h2>
+
+<div id="box">
+    Move, click or double-click here
+</div>
+
+<p id="output">Mouse event information will appear here.</p>
+
+<script>
+let box = document.getElementById("box");
+let output = document.getElementById("output");
+
+box.addEventListener("click", function() {
+    output.innerHTML = "Mouse Click event occurred.";
+});
+
+box.addEventListener("dblclick", function() {
+    output.innerHTML = "Mouse Double-Click event occurred.";
+});
+
+box.addEventListener("mouseover", function() {
+    output.innerHTML = "Mouse Over event occurred.";
+});
+
+box.addEventListener("mouseout", function() {
+    output.innerHTML = "Mouse Out event occurred.";
+});
+
+box.addEventListener("mousedown", function() {
+    output.innerHTML = "Mouse Down event occurred.";
+});
+
+box.addEventListener("mouseup", function() {
+    output.innerHTML = "Mouse Up event occurred.";
+});
+
+box.addEventListener("mousemove", function() {
+    output.innerHTML = "Mouse Move event occurred.";
+});
+</script>
+
+</body>
+</html>

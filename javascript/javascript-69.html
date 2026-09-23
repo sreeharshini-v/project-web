@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change CSS Using JavaScript</title>
+
+    <style>
+        #box {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Change CSS Styles</h2>
+
+<div id="box">Sample Box</div>
+
+<br>
+
+<button onclick="changeStyle()">Change Style</button>
+
+<script>
+function changeStyle() {
+
+    let box = document.getElementById("box");
+
+    box.style.backgroundColor = "lightgreen";
+    box.style.color = "black";
+    box.style.fontSize = "25px";
+    box.style.border = "3px solid black";
+    box.style.textAlign = "center";
+}
+</script>
+
+</body>
+</html>

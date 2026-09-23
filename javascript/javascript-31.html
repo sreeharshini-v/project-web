@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced Validation</title>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form id="registrationForm">
+
+    <input type="text" id="name" placeholder="Enter Name">
+    <br><br>
+
+    <input type="text" id="email" placeholder="Enter Email">
+    <br><br>
+
+    <input type="text" id="phone" placeholder="Enter Phone Number">
+    <br><br>
+
+    <input type="password" id="password" placeholder="Enter Password">
+    <br><br>
+
+    <button type="submit">Register</button>
+</form>
+
+<p id="message"></p>
+
+<script>
+document.getElementById("registrationForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let password = document.getElementById("password").value;
+
+    let namePattern = /^[A-Za-z ]+$/;
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let phonePattern = /^[0-9]{10}$/;
+
+    if (!namePattern.test(name)) {
+        showMessage("Enter a valid name.");
+        return;
+    }
+
+    if (!emailPattern.test(email)) {
+        showMessage("Enter a valid email address.");
+        return;
+    }
+
+    if (!phonePattern.test(phone)) {
+        showMessage("Phone number must contain exactly 10 digits.");
+        return;
+    }
+
+    if (password.length < 8) {
+        showMessage("Password must contain at least 8 characters.");
+        return;
+    }
+
+    showMessage("All details are valid!");
+});
+
+function showMessage(message) {
+    document.getElementById("message").innerHTML = message;
+}
+</script>
+
+</body>
+</html>

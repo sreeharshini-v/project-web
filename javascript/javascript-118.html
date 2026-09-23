@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Password Generator</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2f3;
+            text-align: center;
+        }
+
+        .container {
+            width: 450px;
+            max-width: 90%;
+            margin: 80px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            font-size: 18px;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin: 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Password Generator</h1>
+
+    <input type="text" id="password" readonly>
+
+    <br>
+
+    <label>
+        Length:
+        <input type="number" id="length"
+               value="12" min="4" max="50">
+    </label>
+
+    <button onclick="generatePassword()">
+        Generate Password
+    </button>
+
+</div>
+
+<script>
+    function generatePassword() {
+
+        let length =
+            Number(document.getElementById("length").value);
+
+        if (length < 4 || length > 50) {
+            alert("Password length must be between 4 and 50.");
+            return;
+        }
+
+        let characters =
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+            "abcdefghijklmnopqrstuvwxyz" +
+            "0123456789" +
+            "!@#$%^&*()_+";
+
+        let password = "";
+
+        for (let i = 0; i < length; i++) {
+
+            let index =
+                Math.floor(Math.random() * characters.length);
+
+            password += characters[index];
+        }
+
+        document.getElementById("password").value =
+            password;
+    }
+
+    generatePassword();
+</script>
+
+</body>
+</html>

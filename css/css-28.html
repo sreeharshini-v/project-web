@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Combinator Selectors</title>
+    <style>
+        div p {
+            color: blue;
+        }
+
+        div > span {
+            color: red;
+        }
+
+        h2 + p {
+            background: yellow;
+        }
+
+        h2 ~ p {
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <p>Descendant selector</p>
+    <span>Child selector</span>
+</div>
+
+<h2>Heading</h2>
+<p>Adjacent sibling</p>
+<p>General sibling</p>
+
+</body>
+</html>

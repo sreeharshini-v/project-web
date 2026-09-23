@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Validation</title>
+</head>
+<body>
+
+<h2>Password Length Validation</h2>
+
+<input type="password" id="password">
+<button onclick="validatePassword()">Validate</button>
+
+<p id="message"></p>
+
+<script>
+function validatePassword() {
+    const password = document.getElementById("password").value;
+
+    if (password.length >= 8) {
+        document.getElementById("message").textContent =
+            "Valid password.";
+    } else {
+        document.getElementById("message").textContent =
+            "Password must contain at least 8 characters.";
+    }
+}
+</script>
+
+</body>
+</html>

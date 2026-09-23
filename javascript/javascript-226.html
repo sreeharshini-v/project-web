@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validation Without Reload</title>
+
+    <style>
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form id="form">
+
+    <label>Name:</label>
+    <input type="text" id="name">
+    <span id="nameError" class="error"></span>
+
+    <br><br>
+
+    <label>Email:</label>
+    <input type="text" id="email">
+    <span id="emailError" class="error"></span>
+
+    <br><br>
+
+    <label>Mobile:</label>
+    <input type="text" id="mobile">
+    <span id="mobileError" class="error"></span>
+
+    <br><br>
+
+    <button type="submit">Submit</button>
+
+</form>
+
+<p id="success"></p>
+
+<script>
+document.getElementById("form").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    document.getElementById("nameError").textContent = "";
+    document.getElementById("emailError").textContent = "";
+    document.getElementById("mobileError").textContent = "";
+    document.getElementById("success").textContent = "";
+
+    let valid = true;
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const mobile = document.getElementById("mobile").value.trim();
+
+    if (!/^[A-Za-z ]+$/.test(name)) {
+        document.getElementById("nameError").textContent =
+            " Invalid name";
+        valid = false;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        document.getElementById("emailError").textContent =
+            " Invalid email";
+        valid = false;
+    }
+
+    if (!/^[6-9][0-9]{9}$/.test(mobile)) {
+        document.getElementById("mobileError").textContent =
+            " Invalid mobile number";
+        valid = false;
+    }
+
+    if (valid) {
+        document.getElementById("success").textContent =
+            "Form submitted successfully without page reload!";
+    }
+});
+</script>
+
+</body>
+</html>

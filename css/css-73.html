@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Functions</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: clamp(30px, 6vw, 70px);
+            text-align: center;
+        }
+
+        .container {
+            width: min(90%, 1000px);
+            margin: auto;
+            background: lightblue;
+            padding: max(20px, 4vw);
+        }
+
+        .box {
+            width: max(200px, 50%);
+            background: orange;
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>CSS clamp(), min() and max()</h1>
+
+<div class="container">
+
+    <h2>Responsive Container</h2>
+
+    <div class="box">
+        This box uses max().
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Unordered List</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            width: 400px;
+            margin: 50px auto;
+        }
+
+        li {
+            padding: 10px;
+            background-color: #eee;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Student Names</h1>
+
+    <ul id="studentList"></ul>
+
+    <script>
+        let students = [
+            "Anu",
+            "Rahul",
+            "Priya",
+            "Kiran",
+            "Sneha"
+        ];
+
+        let list =
+            document.getElementById("studentList");
+
+        students.forEach(function(student) {
+
+            let li = document.createElement("li");
+
+            li.textContent = student;
+
+            list.appendChild(li);
+        });
+    </script>
+
+</body>
+</html>

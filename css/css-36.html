@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Z Index</title>
+    <style>
+        .box {
+            width: 180px;
+            height: 180px;
+            position: absolute;
+            color: white;
+            padding: 20px;
+        }
+
+        .one {
+            background: red;
+            left: 50px;
+            top: 100px;
+            z-index: 1;
+        }
+
+        .two {
+            background: blue;
+            left: 120px;
+            top: 160px;
+            z-index: 2;
+        }
+
+        .three {
+            background: green;
+            left: 190px;
+            top: 220px;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box one">Z-index 1</div>
+<div class="box two">Z-index 2</div>
+<div class="box three">Z-index 3</div>
+
+</body>
+</html>

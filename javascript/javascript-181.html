@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Coordinate Tracker</title>
+</head>
+<body>
+
+<h2>Mouse Coordinate Tracker</h2>
+
+<p id="coordinates">Move your mouse.</p>
+
+<script>
+document.addEventListener("mousemove", function(event) {
+
+    document.getElementById("coordinates").textContent =
+        "Mouse X: " + event.clientX +
+        " | Mouse Y: " + event.clientY;
+});
+</script>
+
+</body>
+</html>

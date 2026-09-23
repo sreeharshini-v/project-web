@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Application</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+        }
+
+        .quiz {
+            width: 500px;
+            max-width: 90%;
+            margin: 50px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .option {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #result {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="quiz">
+
+    <h1>Quiz Application</h1>
+
+    <h2 id="question"></h2>
+
+    <div id="options"></div>
+
+    <button onclick="nextQuestion()">Next</button>
+
+    <p id="result"></p>
+
+</div>
+
+<script>
+    const questions = [
+        {
+            question: "Which language is used for web page behavior?",
+            options: ["HTML", "CSS", "JavaScript", "SQL"],
+            answer: "JavaScript"
+        },
+        {
+            question: "Which tag is used for a paragraph?",
+            options: ["<p>", "<h1>", "<br>", "<div>"],
+            answer: "<p>"
+        },
+        {
+            question: "Which property changes text color in CSS?",
+            options: ["font", "color", "background", "text"],
+            answer: "color"
+        },
+        {
+            question: "Which keyword declares a constant in JavaScript?",
+            options: ["var", "let", "const", "static"],
+            answer: "const"
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let selectedAnswer = "";
+
+    function showQuestion() {
+
+        let q = questions[currentQuestion];
+
+        document.getElementById("question").textContent =
+            q.question;
+
+        let optionsHTML = "";
+
+        q.options.forEach(function(option) {
+
+            optionsHTML +=
+                '<button class="option" onclick="selectAnswer(this, \'' +
+                option.replace(/'/g, "\\'") +
+                '\')">' +
+                option +
+                '</button>';
+        });
+
+        document.getElementById("options").innerHTML =
+            optionsHTML;
+    }
+
+    function selectAnswer(button, answer) {
+
+        selectedAnswer = answer;
+
+        document.querySelectorAll(".option").forEach(function(btn) {
+            btn.style.backgroundColor = "";
+        });
+
+        button.style.backgroundColor = "#bde0fe";
+    }
+
+    function nextQuestion() {
+
+        if (selectedAnswer === "") {
+            alert("Please select an answer.");
+            return;
+        }
+
+        if (selectedAnswer === questions[currentQuestion].answer) {
+            score++;
+        }
+
+        currentQuestion++;
+        selectedAnswer = "";
+
+        if (currentQuestion < questions.length) {
+            showQuestion();
+        } else {
+
+            document.getElementById("question").textContent =
+                "Quiz Completed!";
+
+            document.getElementById("options").innerHTML = "";
+
+            document.getElementById("result").textContent =
+                "Your Score: " + score + " / " +
+                questions.length;
+        }
+    }
+
+    showQuestion();
+</script>
+
+</body>
+</html>

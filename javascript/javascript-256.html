@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+</head>
+<body>
+
+<h2>To-Do List</h2>
+
+<input type="text" id="task" placeholder="Enter task">
+<button onclick="addTask()">Add</button>
+
+<ul id="taskList"></ul>
+
+<script>
+function getTasks() {
+    return JSON.parse(localStorage.getItem("tasks")) || [];
+}
+
+function addTask() {
+    let task = document.getElementById("task").value;
+
+    if (task === "") return;
+
+    let tasks = getTasks();
+
+    tasks.push(task);
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
+    document.getElementById("task").value = "";
+
+    displayTasks();
+}
+
+function deleteTask(index) {
+    let tasks = getTasks();
+
+    tasks.splice(index, 1);
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
+    displayTasks();
+}
+
+function displayTasks() {
+    let tasks = getTasks();
+    let output = "";
+
+    tasks.forEach((task, index) => {
+        output += `
+            <li>
+                ${task}
+                <button onclick="deleteTask(${index})">Delete</button>
+            </li>
+        `;
+    });
+
+    document.getElementById("taskList").innerHTML = output;
+}
+
+displayTasks();
+</script>
+
+</body>
+</html>

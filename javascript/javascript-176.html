@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>removeEventListener</title>
+</head>
+<body>
+
+<h2>Remove Event Listener</h2>
+
+<button id="button">Click Me</button>
+<button id="remove">Remove Listener</button>
+
+<p id="message"></p>
+
+<script>
+const button = document.getElementById("button");
+
+function showMessage() {
+    document.getElementById("message").textContent =
+        "Click event is working.";
+}
+
+button.addEventListener("click", showMessage);
+
+document.getElementById("remove").addEventListener("click", function() {
+    button.removeEventListener("click", showMessage);
+
+    document.getElementById("message").textContent =
+        "Event listener removed.";
+});
+</script>
+
+</body>
+</html>

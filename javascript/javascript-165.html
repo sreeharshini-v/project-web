@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Key Press Counter</title>
+</head>
+<body>
+
+<h2>Keyboard Key Press Counter</h2>
+
+<p>Press any key on the keyboard.</p>
+
+<h1 id="count">0</h1>
+
+<script>
+let count = 0;
+
+document.addEventListener("keydown", function() {
+    count++;
+    document.getElementById("count").textContent = count;
+});
+</script>
+
+</body>
+</html>

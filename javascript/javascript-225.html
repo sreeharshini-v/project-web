@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Form Fields</title>
+</head>
+<body>
+
+<h2>Dynamic Form Fields</h2>
+
+<label>Select Type:</label>
+
+<select id="type">
+    <option value="">Select</option>
+    <option value="student">Student</option>
+    <option value="employee">Employee</option>
+</select>
+
+<div id="fields"></div>
+
+<script>
+document.getElementById("type").addEventListener("change", function() {
+
+    const fields = document.getElementById("fields");
+
+    fields.innerHTML = "";
+
+    if (this.value === "student") {
+
+        fields.innerHTML =
+            '<br><input type="text" placeholder="Course">' +
+            '<br><br><input type="text" placeholder="College">';
+    }
+
+    if (this.value === "employee") {
+
+        fields.innerHTML =
+            '<br><input type="text" placeholder="Company">' +
+            '<br><br><input type="text" placeholder="Job Role">';
+    }
+});
+</script>
+
+</body>
+</html>

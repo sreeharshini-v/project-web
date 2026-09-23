@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Radio Validation</title>
+</head>
+<body>
+
+<h2>Select Your Course</h2>
+
+<label>
+    <input type="radio" name="course" value="BCA"> BCA
+</label>
+
+<label>
+    <input type="radio" name="course" value="B.Tech"> B.Tech
+</label>
+
+<label>
+    <input type="radio" name="course" value="B.Sc"> B.Sc
+</label>
+
+<br><br>
+
+<button onclick="validate()">Submit</button>
+
+<p id="message"></p>
+
+<script>
+function validate() {
+    const course = document.querySelector(
+        'input[name="course"]:checked'
+    );
+
+    if (course) {
+        document.getElementById("message").textContent =
+            "Selected: " + course.value;
+    } else {
+        document.getElementById("message").textContent =
+            "Please select a course.";
+    }
+}
+</script>
+
+</body>
+</html>

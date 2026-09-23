@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page 1</title>
+</head>
+<body>
+
+<h2>Personal Information</h2>
+
+<input type="text" id="name" placeholder="Name">
+<br><br>
+
+<input type="email" id="email" placeholder="Email">
+<br><br>
+
+<button onclick="nextPage()">Next</button>
+
+<script>
+function nextPage() {
+    sessionStorage.setItem(
+        "name",
+        document.getElementById("name").value
+    );
+
+    sessionStorage.setItem(
+        "email",
+        document.getElementById("email").value
+    );
+
+    window.location.href = "page2.html";
+}
+</script>
+
+</body>
+</html>

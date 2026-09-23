@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Classes and Objects</title>
+</head>
+<body>
+
+<h2>Classes and Objects in JavaScript</h2>
+
+<p id="output"></p>
+
+<script>
+class Student {
+    constructor(name, age, course) {
+        this.name = name;
+        this.age = age;
+        this.course = course;
+    }
+
+    displayDetails() {
+        return `
+            Name: ${this.name}<br>
+            Age: ${this.age}<br>
+            Course: ${this.course}
+        `;
+    }
+}
+
+// Creating an object
+let student1 = new Student("Harshini", 20, "Computer Science");
+
+document.getElementById("output").innerHTML =
+    student1.displayDetails();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Form Validation</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f0f2f5;
+        }
+
+        .container {
+            width: 400px;
+            margin: 60px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            min-height: 18px;
+        }
+
+        .valid {
+            color: green;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            margin-top: 10px;
+        }
+
+        #success {
+            color: green;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Dynamic Validation</h2>
+
+    <form id="form">
+
+        <label>Name:</label>
+        <input type="text" id="name">
+        <div id="nameError" class="error"></div>
+
+        <label>Email:</label>
+        <input type="text" id="email">
+        <div id="emailError" class="error"></div>
+
+        <label>Password:</label>
+        <input type="password" id="password">
+        <div id="passwordError" class="error"></div>
+
+        <button type="submit">Submit</button>
+
+        <p id="success"></p>
+
+    </form>
+
+</div>
+
+<script>
+    let nameInput = document.getElementById("name");
+    let emailInput = document.getElementById("email");
+    let passwordInput = document.getElementById("password");
+
+    nameInput.addEventListener("input", function() {
+
+        let error = document.getElementById("nameError");
+
+        if (nameInput.value.trim() === "") {
+            error.textContent = "Name cannot be empty";
+            error.className = "error";
+        } else {
+            error.textContent = "Name is valid";
+            error.className = "valid";
+        }
+    });
+
+    emailInput.addEventListener("input", function() {
+
+        let error = document.getElementById("emailError");
+
+        let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+        if (emailInput.value.trim() === "") {
+            error.textContent = "Email cannot be empty";
+            error.className = "error";
+        } else if (!pattern.test(emailInput.value)) {
+            error.textContent = "Enter a valid email address";
+            error.className = "error";
+        } else {
+            error.textContent = "Email is valid";
+            error.className = "valid";
+        }
+    });
+
+    passwordInput.addEventListener("input", function() {
+
+        let error = document.getElementById("passwordError");
+
+        if (passwordInput.value.length < 6) {
+            error.textContent =
+                "Password must contain at least 6 characters";
+            error.className = "error";
+        } else {
+            error.textContent = "Password is valid";
+            error.className = "valid";
+        }
+    });
+
+    document.getElementById("form").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        if (
+            nameInput.value.trim() !== "" &&
+            /^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(emailInput.value) &&
+            passwordInput.value.length >= 6
+        ) {
+            document.getElementById("success").textContent =
+                "Form submitted successfully!";
+        } else {
+            document.getElementById("success").textContent = "";
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Window Object</title>
+</head>
+<body>
+
+<h2>Window Object Demonstration</h2>
+
+<button onclick="showWindow()">Show Window Information</button>
+
+<p id="output"></p>
+
+<script>
+function showWindow() {
+    let text = "";
+
+    text += "Window Width: " + window.innerWidth + " px<br>";
+    text += "Window Height: " + window.innerHeight + " px<br>";
+    text += "Screen Width: " + window.screen.width + " px<br>";
+    text += "Screen Height: " + window.screen.height + " px<br>";
+    text += "Current URL: " + window.location.href;
+
+    document.getElementById("output").innerHTML = text;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List CRUD</title>
+
+    <style>
+        li {
+            margin: 10px;
+        }
+
+        button {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>To-Do List</h2>
+
+<input type="text" id="taskInput" placeholder="Enter task">
+<button onclick="addTask()">Add Task</button>
+
+<ul id="taskList"></ul>
+
+<script>
+function addTask() {
+
+    const input = document.getElementById("taskInput");
+
+    if (input.value.trim() === "") {
+        alert("Enter a task");
+        return;
+    }
+
+    const li = document.createElement("li");
+
+    const span = document.createElement("span");
+    span.textContent = input.value;
+
+    const editButton = document.createElement("button");
+    editButton.textContent = "Edit";
+
+    editButton.onclick = function () {
+        const newTask = prompt("Edit task:", span.textContent);
+
+        if (newTask !== null && newTask.trim() !== "") {
+            span.textContent = newTask;
+        }
+    };
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+
+    deleteButton.onclick = function () {
+        li.remove();
+    };
+
+    li.appendChild(span);
+    li.appendChild(editButton);
+    li.appendChild(deleteButton);
+
+    document.getElementById("taskList").appendChild(li);
+
+    input.value = "";
+}
+</script>
+
+</body>
+</html>

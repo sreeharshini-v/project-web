@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page 2</title>
+</head>
+<body>
+
+<h2>Confirmation</h2>
+
+<p id="result"></p>
+
+<script>
+let name = sessionStorage.getItem("name");
+let email = sessionStorage.getItem("email");
+
+document.getElementById("result").innerHTML =
+    "Name: " + name + "<br>" +
+    "Email: " + email;
+</script>
+
+</body>
+</html>

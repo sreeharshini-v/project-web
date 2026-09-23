@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Variables</title>
+    <style>
+        :root {
+            --main-color: #2563eb;
+            --secondary-color: #e5e7eb;
+            --padding: 20px;
+        }
+
+        h1 {
+            color: var(--main-color);
+        }
+
+        .box {
+            background: var(--secondary-color);
+            padding: var(--padding);
+            border: 3px solid var(--main-color);
+        }
+
+        button {
+            background: var(--main-color);
+            color: white;
+            padding: var(--padding);
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<h1>CSS Custom Properties</h1>
+
+<div class="box">
+    CSS variables make styles easier to manage.
+</div>
+
+<br>
+
+<button>Click Me</button>
+
+</body>
+</html>

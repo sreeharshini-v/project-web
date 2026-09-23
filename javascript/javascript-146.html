@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Hide Content</title>
+</head>
+<body>
+
+<h2>Show / Hide Content</h2>
+
+<button onclick="toggleContent()">Hide Content</button>
+
+<p id="content">
+    This is the content that can be shown or hidden using JavaScript.
+</p>
+
+<script>
+function toggleContent() {
+    const content = document.getElementById("content");
+    const button = event.target;
+
+    if (content.style.display === "none") {
+        content.style.display = "block";
+        button.textContent = "Hide Content";
+    } else {
+        content.style.display = "none";
+        button.textContent = "Show Content";
+    }
+}
+</script>
+
+</body>
+</html>

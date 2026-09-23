@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Events</title>
+</head>
+<body>
+
+<h2>Form Events</h2>
+
+<input type="text" id="name" placeholder="Enter name">
+
+<br><br>
+
+<select id="course">
+    <option value="">Select Course</option>
+    <option>BCA</option>
+    <option>B.Tech</option>
+</select>
+
+<p id="message"></p>
+
+<script>
+const nameInput = document.getElementById("name");
+const course = document.getElementById("course");
+const message = document.getElementById("message");
+
+nameInput.addEventListener("focus", function() {
+    message.textContent = "Name field focused.";
+});
+
+nameInput.addEventListener("input", function() {
+    message.textContent = "Typing: " + this.value;
+});
+
+nameInput.addEventListener("blur", function() {
+    message.textContent = "Name field lost focus.";
+});
+
+course.addEventListener("change", function() {
+    message.textContent = "Course changed to: " + this.value;
+});
+</script>
+
+</body>
+</html>

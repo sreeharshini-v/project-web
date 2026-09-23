@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiple Buttons</title>
+</head>
+<body>
+
+<h2>Multiple Event Handlers</h2>
+
+<button onclick="showMessage()">Message</button>
+<button onclick="changeColor()">Color</button>
+<button onclick="changeText()">Text</button>
+
+<p id="output">Original Text</p>
+
+<script>
+function showMessage() {
+    alert("Hello! Button clicked.");
+}
+
+function changeColor() {
+    document.body.style.backgroundColor = "lightgreen";
+}
+
+function changeText() {
+    document.getElementById("output").textContent =
+        "The text has been changed!";
+}
+</script>
+
+</body>
+</html>

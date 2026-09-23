@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Replace Element</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        #oldElement {
+            padding: 25px;
+            background-color: lightblue;
+            width: 300px;
+            margin: 30px auto;
+        }
+
+        button {
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Replace HTML Element</h1>
+
+    <div id="oldElement">
+        This is the old element.
+    </div>
+
+    <button onclick="replaceElement()">
+        Replace Element
+    </button>
+
+    <script>
+        function replaceElement() {
+
+            let oldElement =
+                document.getElementById("oldElement");
+
+            let newElement =
+                document.createElement("div");
+
+            newElement.textContent =
+                "This is the new element!";
+
+            newElement.style.padding = "25px";
+            newElement.style.backgroundColor = "lightgreen";
+            newElement.style.width = "300px";
+            newElement.style.margin = "30px auto";
+
+            oldElement.replaceWith(newElement);
+        }
+    </script>
+
+</body>
+</html>

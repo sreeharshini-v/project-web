@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Theme Switcher</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial;
+            margin: 0;
+            background-color: white;
+            color: black;
+            transition: 0.3s;
+        }
+
+        header {
+            padding: 25px;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 60px auto;
+            padding: 30px;
+            text-align: center;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border-radius: 5px;
+        }
+
+        body.dark {
+            background-color: #222;
+            color: white;
+        }
+
+        body.dark header {
+            border-color: #555;
+        }
+
+        body.dark button {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Theme Switcher</h1>
+</header>
+
+<div class="container">
+
+    <h2>Light and Dark Mode</h2>
+
+    <p>
+        Select a theme. Your selected theme will remain saved
+        even after refreshing the page.
+    </p>
+
+    <button id="themeButton" onclick="toggleTheme()">
+        Dark Mode
+    </button>
+
+</div>
+
+<script>
+    let savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+        document.getElementById("themeButton").textContent =
+            "Light Mode";
+    }
+
+    function toggleTheme() {
+
+        document.body.classList.toggle("dark");
+
+        if (document.body.classList.contains("dark")) {
+
+            localStorage.setItem("theme", "dark");
+
+            document.getElementById("themeButton").textContent =
+                "Light Mode";
+
+        } else {
+
+            localStorage.setItem("theme", "light");
+
+            document.getElementById("themeButton").textContent =
+                "Dark Mode";
+        }
+    }
+</script>
+
+</body>
+</html>

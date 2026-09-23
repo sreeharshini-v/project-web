@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>localStorage Example</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            width: 400px;
+            margin: 80px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+            text-align: center;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #display {
+            margin-top: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>localStorage Example</h2>
+
+    <input type="text" id="name" placeholder="Enter your name">
+
+    <br>
+
+    <button onclick="saveData()">Save</button>
+    <button onclick="loadData()">Load</button>
+    <button onclick="removeData()">Remove</button>
+
+    <div id="display"></div>
+
+</div>
+
+<script>
+    function saveData() {
+
+        let name = document.getElementById("name").value.trim();
+
+        if (name === "") {
+            document.getElementById("display").textContent =
+                "Please enter your name.";
+            return;
+        }
+
+        localStorage.setItem("studentName", name);
+
+        document.getElementById("display").textContent =
+            "Data saved successfully!";
+    }
+
+    function loadData() {
+
+        let name = localStorage.getItem("studentName");
+
+        if (name !== null) {
+            document.getElementById("display").textContent =
+                "Stored Name: " + name;
+        } else {
+            document.getElementById("display").textContent =
+                "No data found.";
+        }
+    }
+
+    function removeData() {
+
+        localStorage.removeItem("studentName");
+
+        document.getElementById("display").textContent =
+            "Data removed successfully!";
+    }
+</script>
+
+</body>
+</html>

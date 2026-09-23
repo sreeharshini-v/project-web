@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>sessionStorage Example</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #eaf2f8;
+        }
+
+        .container {
+            width: 400px;
+            margin: 80px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+            text-align: center;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>sessionStorage Example</h2>
+
+    <input type="text" id="username"
+           placeholder="Enter username">
+
+    <br>
+
+    <button onclick="saveSession()">Save</button>
+    <button onclick="loadSession()">Load</button>
+    <button onclick="clearSession()">Clear</button>
+
+    <div id="output"></div>
+
+</div>
+
+<script>
+    function saveSession() {
+
+        let username =
+            document.getElementById("username").value.trim();
+
+        if (username === "") {
+            document.getElementById("output").textContent =
+                "Please enter a username.";
+            return;
+        }
+
+        sessionStorage.setItem("username", username);
+
+        document.getElementById("output").textContent =
+            "Username saved in sessionStorage.";
+    }
+
+    function loadSession() {
+
+        let username = sessionStorage.getItem("username");
+
+        if (username !== null) {
+            document.getElementById("output").textContent =
+                "Stored Username: " + username;
+        } else {
+            document.getElementById("output").textContent =
+                "No username found.";
+        }
+    }
+
+    function clearSession() {
+
+        sessionStorage.removeItem("username");
+
+        document.getElementById("output").textContent =
+            "Session data cleared.";
+    }
+</script>
+
+</body>
+</html>

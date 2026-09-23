@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Offline Status</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        #status {
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Internet Connection Monitor</h2>
+
+<p id="status"></p>
+<p id="time"></p>
+
+<script>
+function updateStatus() {
+
+    let status = document.getElementById("status");
+    let time = document.getElementById("time");
+
+    if (navigator.onLine) {
+        status.innerHTML = "You are Online";
+    } else {
+        status.innerHTML = "You are Offline";
+    }
+
+    time.innerHTML =
+        "Last updated: " + new Date().toLocaleTimeString();
+}
+
+window.addEventListener("online", updateStatus);
+window.addEventListener("offline", updateStatus);
+
+updateStatus();
+</script>
+
+</body>
+</html>

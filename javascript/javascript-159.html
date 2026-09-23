@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Events</title>
+
+    <style>
+        #box {
+            width: 250px;
+            padding: 50px;
+            background-color: lightblue;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h2>onmouseover and onmouseout</h2>
+
+<div id="box"
+     onmouseover="mouseOver()"
+     onmouseout="mouseOut()">
+    Move Mouse Here
+</div>
+
+<p id="message"></p>
+
+<script>
+function mouseOver() {
+    document.getElementById("message").textContent =
+        "Mouse is over the box.";
+}
+
+function mouseOut() {
+    document.getElementById("message").textContent =
+        "Mouse left the box.";
+}
+</script>
+
+</body>
+</html>

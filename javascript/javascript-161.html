@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>onmousemove Event</title>
+
+    <style>
+        #area {
+            width: 500px;
+            height: 300px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<h2>onmousemove Event</h2>
+
+<div id="area" onmousemove="trackMouse(event)">
+    Move the mouse inside this area
+</div>
+
+<p id="position"></p>
+
+<script>
+function trackMouse(event) {
+    document.getElementById("position").textContent =
+        "X: " + event.clientX +
+        " | Y: " + event.clientY;
+}
+</script>
+
+</body>
+</html>

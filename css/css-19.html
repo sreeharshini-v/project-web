@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Navigation</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        nav {
+            background-color: #222;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        li a {
+            display: block;
+            padding: 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #555;
+        }
+
+        @media (max-width: 600px) {
+            ul {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+</body>
+</html>

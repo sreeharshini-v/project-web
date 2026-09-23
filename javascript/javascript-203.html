@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Field Error Messages</title>
+
+    <style>
+        .error {
+            color: red;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form id="form">
+
+    <label>Name:</label>
+    <input type="text" id="name">
+    <span id="nameError" class="error"></span>
+    <br><br>
+
+    <label>Email:</label>
+    <input type="text" id="email">
+    <span id="emailError" class="error"></span>
+    <br><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+document.getElementById("form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    document.getElementById("nameError").textContent = "";
+    document.getElementById("emailError").textContent = "";
+
+    let valid = true;
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+
+    if (name === "") {
+        document.getElementById("nameError").textContent =
+            "Name is required";
+        valid = false;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        document.getElementById("emailError").textContent =
+            "Invalid email";
+        valid = false;
+    }
+
+    if (valid) {
+        alert("Form submitted successfully.");
+    }
+});
+</script>
+
+</body>
+</html>

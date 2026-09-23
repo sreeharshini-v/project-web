@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ondblclick Event</title>
+</head>
+<body>
+
+<h2>ondblclick Event</h2>
+
+<button ondblclick="doubleClick()">Double Click Me</button>
+
+<p id="message"></p>
+
+<script>
+function doubleClick() {
+    document.getElementById("message").textContent =
+        "Button was double-clicked!";
+}
+</script>
+
+</body>
+</html>

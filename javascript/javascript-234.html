@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Location Object</title>
+</head>
+<body>
+
+<h2>Location Object</h2>
+
+<button onclick="showLocation()">Show Location Information</button>
+
+<p id="output"></p>
+
+<script>
+function showLocation() {
+    let text = "";
+
+    text += "Full URL: " + location.href + "<br>";
+    text += "Protocol: " + location.protocol + "<br>";
+    text += "Hostname: " + location.hostname + "<br>";
+    text += "Port: " + location.port + "<br>";
+    text += "Path: " + location.pathname;
+
+    document.getElementById("output").innerHTML = text;
+}
+</script>
+
+</body>
+</html>

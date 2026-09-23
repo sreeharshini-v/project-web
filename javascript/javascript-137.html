@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Table Data</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin: 40px;
+        }
+
+        table {
+            width: 600px;
+            max-width: 100%;
+            margin: 30px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        button {
+            padding: 7px 12px;
+            cursor: pointer;
+        }
+
+        .save {
+            background-color: green;
+            color: white;
+            border: none;
+        }
+
+        .edit {
+            background-color: orange;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Edit Table Data</h1>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Marks</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="tableBody">
+
+            <tr>
+                <td>Anu</td>
+                <td>BCA</td>
+                <td>85</td>
+                <td>
+                    <button class="edit"
+                            onclick="editRow(this)">
+                        Edit
+                    </button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Rahul</td>
+                <td>B.Sc</td>
+                <td>90</td>
+                <td>
+                    <button class="edit"
+                            onclick="editRow(this)">
+                        Edit
+                    </button>
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <script>
+        function editRow(button) {
+
+            let row =
+                button.parentElement.parentElement;
+
+            let nameCell = row.cells[0];
+            let courseCell = row.cells[1];
+            let marksCell = row.cells[2];
+
+            if (button.textContent === "Edit") {
+
+                nameCell.innerHTML =
+                    '<input type="text" value="' +
+                    nameCell.textContent +
+                    '">';
+
+                courseCell.innerHTML =
+                    '<input type="text" value="' +
+                    courseCell.textContent +
+                    '">';
+
+                marksCell.innerHTML =
+                    '<input type="number" value="' +
+                    marksCell.textContent +
+                    '">';
+
+                button.textContent = "Save";
+                button.className = "save";
+
+            } else {
+
+                let inputs = row.querySelectorAll("input");
+
+                nameCell.textContent = inputs[0].value;
+                courseCell.textContent = inputs[1].value;
+                marksCell.textContent = inputs[2].value;
+
+                button.textContent = "Edit";
+                button.className = "edit";
+            }
+        }
+    </script>
+
+</body>
+</html>

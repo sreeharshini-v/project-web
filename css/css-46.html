@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flexbox Cards</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            flex: 1 1 250px;
+            max-width: 300px;
+            padding: 30px;
+            background: #eee;
+            text-align: center;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Our Services</h1>
+
+<div class="container">
+    <div class="card">
+        <h2>Web Design</h2>
+        <p>Creative website designs.</p>
+    </div>
+
+    <div class="card">
+        <h2>Development</h2>
+        <p>Modern web applications.</p>
+    </div>
+
+    <div class="card">
+        <h2>SEO</h2>
+        <p>Improve website visibility.</p>
+    </div>
+</div>
+
+</body>
+</html>

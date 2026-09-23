@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Student Table</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Student Table</h1>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+
+        <tbody id="studentTable"></tbody>
+
+    </table>
+
+    <script>
+        let students = [
+            {
+                roll: 1,
+                name: "Anu",
+                course: "BCA",
+                marks: 85
+            },
+            {
+                roll: 2,
+                name: "Rahul",
+                course: "B.Sc",
+                marks: 90
+            },
+            {
+                roll: 3,
+                name: "Priya",
+                course: "BCA",
+                marks: 78
+            }
+        ];
+
+        let table =
+            document.getElementById("studentTable");
+
+        students.forEach(function(student) {
+
+            let row = table.insertRow();
+
+            row.insertCell(0).textContent = student.roll;
+            row.insertCell(1).textContent = student.name;
+            row.insertCell(2).textContent = student.course;
+            row.insertCell(3).textContent = student.marks;
+        });
+    </script>
+
+</body>
+</html>

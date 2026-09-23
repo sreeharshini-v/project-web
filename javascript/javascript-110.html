@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Application</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #dff3ff;
+            text-align: center;
+        }
+
+        .container {
+            width: 400px;
+            max-width: 90%;
+            margin: 70px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Weather App</h1>
+
+    <p>Enter coordinates</p>
+
+    <input type="number" id="latitude"
+           placeholder="Latitude">
+
+    <input type="number" id="longitude"
+           placeholder="Longitude">
+
+    <button onclick="getWeather()">Get Weather</button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+    async function getWeather() {
+
+        let latitude = document.getElementById("latitude").value;
+        let longitude = document.getElementById("longitude").value;
+        let result = document.getElementById("result");
+
+        if (latitude === "" || longitude === "") {
+            result.textContent = "Please enter latitude and longitude.";
+            return;
+        }
+
+        result.textContent = "Loading...";
+
+        try {
+
+            let url =
+                "https://api.open-meteo.com/v1/forecast" +
+                "?latitude=" + encodeURIComponent(latitude) +
+                "&longitude=" + encodeURIComponent(longitude) +
+                "&current=temperature_2m,relative_humidity_2m,wind_speed_10m";
+
+            let response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error("Unable to get weather data.");
+            }
+
+            let data = await response.json();
+
+            result.innerHTML =
+                "<h2>Current Weather</h2>" +
+                "<p>Temperature: " +
+                data.current.temperature_2m +
+                " °C</p>" +
+
+                "<p>Humidity: " +
+                data.current.relative_humidity_2m +
+                "%</p>" +
+
+                "<p>Wind Speed: " +
+                data.current.wind_speed_10m +
+                " km/h</p>";
+
+        } catch (error) {
+
+            result.textContent =
+                "Error: " + error.message;
+        }
+    }
+</script>
+
+</body>
+</html>

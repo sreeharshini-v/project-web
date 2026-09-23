@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Form</title>
+</head>
+<body>
+
+<h2>Contact Us</h2>
+
+<form id="form">
+
+    <input type="text" id="name" placeholder="Name"><br><br>
+
+    <input type="email" id="email" placeholder="Email"><br><br>
+
+    <input type="text" id="subject" placeholder="Subject"><br><br>
+
+    <textarea id="messageText"
+        placeholder="Message"></textarea>
+
+    <br><br>
+
+    <button type="submit">Send Message</button>
+</form>
+
+<p id="message"></p>
+
+<script>
+document.getElementById("form").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const messageText = document.getElementById("messageText").value.trim();
+
+    if (name === "") {
+        alert("Name is required.");
+        return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert("Enter a valid email.");
+        return;
+    }
+
+    if (subject === "") {
+        alert("Subject is required.");
+        return;
+    }
+
+    if (messageText === "") {
+        alert("Message is required.");
+        return;
+    }
+
+    document.getElementById("message").textContent =
+        "Message sent successfully!";
+});
+</script>
+
+</body>
+</html>

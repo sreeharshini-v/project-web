@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add and Remove CSS Classes</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .box {
+            padding: 30px;
+            width: 300px;
+            margin: 30px auto;
+            border: 2px solid black;
+        }
+
+        .highlight {
+            background-color: yellow;
+            color: red;
+            font-size: 25px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box" class="box">
+        CSS class demonstration
+    </div>
+
+    <button onclick="addClass()">Add Class</button>
+
+    <button onclick="removeClass()">Remove Class</button>
+
+    <script>
+        function addClass() {
+
+            document.getElementById("box")
+                .classList.add("highlight");
+        }
+
+        function removeClass() {
+
+            document.getElementById("box")
+                .classList.remove("highlight");
+        }
+    </script>
+
+</body>
+</html>

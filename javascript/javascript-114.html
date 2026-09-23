@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense Tracker</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+        }
+
+        .container {
+            width: 500px;
+            max-width: 90%;
+            margin: 50px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .delete {
+            background: red;
+            color: white;
+            border: none;
+        }
+
+        #total {
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Expense Tracker</h1>
+
+    <input type="text" id="expenseName"
+           placeholder="Expense name">
+
+    <input type="number" id="expenseAmount"
+           placeholder="Amount">
+
+    <button onclick="addExpense()">Add</button>
+
+    <ul id="expenseList"></ul>
+
+    <p id="total">Total: ₹0</p>
+
+</div>
+
+<script>
+    let expenses = [];
+
+    function addExpense() {
+
+        let name =
+            document.getElementById("expenseName").value.trim();
+
+        let amount =
+            Number(document.getElementById("expenseAmount").value);
+
+        if (name === "" || amount <= 0) {
+            alert("Enter valid expense details.");
+            return;
+        }
+
+        expenses.push({
+            name: name,
+            amount: amount
+        });
+
+        document.getElementById("expenseName").value = "";
+        document.getElementById("expenseAmount").value = "";
+
+        displayExpenses();
+    }
+
+    function deleteExpense(index) {
+
+        expenses.splice(index, 1);
+
+        displayExpenses();
+    }
+
+    function displayExpenses() {
+
+        let list =
+            document.getElementById("expenseList");
+
+        list.innerHTML = "";
+
+        let total = 0;
+
+        expenses.forEach(function(expense, index) {
+
+            total += expense.amount;
+
+            let li = document.createElement("li");
+
+            li.innerHTML =
+                expense.name +
+                " - ₹" +
+                expense.amount +
+                ' <button class="delete" onclick="deleteExpense(' +
+                index +
+                ')">Delete</button>';
+
+            list.appendChild(li);
+        });
+
+        document.getElementById("total").textContent =
+            "Total: ₹" + total;
+    }
+</script>
+
+</body>
+</html>

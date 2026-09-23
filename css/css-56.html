@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        header {
+            background: #8b0000;
+            color: white;
+            text-align: center;
+            padding: 60px;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .item {
+            background: #fff3e0;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .price {
+            color: green;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media(max-width:700px) {
+            .menu {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Delicious Restaurant</h1>
+    <p>Fresh Food | Great Taste</p>
+</header>
+
+<h1 style="text-align:center;">Our Menu</h1>
+
+<div class="menu">
+    <div class="item">
+        <h2>Pizza</h2>
+        <p>Cheese and vegetable pizza</p>
+        <p class="price">₹250</p>
+    </div>
+
+    <div class="item">
+        <h2>Burger</h2>
+        <p>Classic vegetable burger</p>
+        <p class="price">₹150</p>
+    </div>
+
+    <div class="item">
+        <h2>Pasta</h2>
+        <p>Creamy Italian pasta</p>
+        <p class="price">₹220</p>
+    </div>
+</div>
+
+<footer>
+    Contact: 9876543210
+</footer>
+
+</body>
+</html>

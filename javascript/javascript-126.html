@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Element Dynamically</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 20px;
+        }
+
+        .message {
+            background-color: lightblue;
+            padding: 15px;
+            margin: 10px auto;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Dynamic Element Creation</h1>
+
+    <button onclick="createElementDemo()">
+        Create New Element
+    </button>
+
+    <div id="container"></div>
+
+    <script>
+        function createElementDemo() {
+
+            let paragraph = document.createElement("p");
+
+            paragraph.textContent =
+                "This paragraph was created dynamically!";
+
+            paragraph.className = "message";
+
+            document.getElementById("container")
+                .appendChild(paragraph);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Window Object</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            width: 500px;
+            margin: 50px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            text-align: left;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>JavaScript Window Object</h2>
+
+    <button onclick="showWindowInfo()">Show Window Information</button>
+    <button onclick="openWindow()">Open New Window</button>
+    <button onclick="showAlert()">Show Alert</button>
+
+    <div id="output"></div>
+
+</div>
+
+<script>
+    function showWindowInfo() {
+
+        let output = document.getElementById("output");
+
+        output.innerHTML =
+            "<strong>Window Width:</strong> " + window.innerWidth + " px<br>" +
+            "<strong>Window Height:</strong> " + window.innerHeight + " px<br>" +
+            "<strong>Screen Width:</strong> " + window.screen.width + " px<br>" +
+            "<strong>Screen Height:</strong> " + window.screen.height + " px<br>" +
+            "<strong>Current URL:</strong> " + window.location.href;
+    }
+
+    function openWindow() {
+        window.open(
+            "https://www.example.com",
+            "_blank",
+            "width=600,height=400"
+        );
+    }
+
+    function showAlert() {
+        window.alert("This is a JavaScript Window Object example!");
+    }
+</script>
+
+</body>
+</html>

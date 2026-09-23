@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Shopping Cart</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+        }
+
+        .products {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 40px;
+        }
+
+        .product {
+            width: 200px;
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 5px gray;
+        }
+
+        button {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .cart {
+            width: 500px;
+            max-width: 90%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1 style="text-align:center;">Shopping Cart</h1>
+
+<div class="products">
+
+    <div class="product">
+        <h3>Book</h3>
+        <p>₹300</p>
+        <button onclick="addToCart('Book', 300)">
+            Add to Cart
+        </button>
+    </div>
+
+    <div class="product">
+        <h3>Bag</h3>
+        <p>₹800</p>
+        <button onclick="addToCart('Bag', 800)">
+            Add to Cart
+        </button>
+    </div>
+
+    <div class="product">
+        <h3>Pen</h3>
+        <p>₹50</p>
+        <button onclick="addToCart('Pen', 50)">
+            Add to Cart
+        </button>
+    </div>
+
+</div>
+
+<div class="cart">
+
+    <h2>Cart</h2>
+
+    <ul id="cartList"></ul>
+
+    <h3 id="total">Total: ₹0</h3>
+
+</div>
+
+<script>
+    let cart = [];
+
+    function addToCart(name, price) {
+
+        cart.push({
+            name: name,
+            price: price
+        });
+
+        displayCart();
+    }
+
+    function displayCart() {
+
+        let list = document.getElementById("cartList");
+
+        list.innerHTML = "";
+
+        let total = 0;
+
+        cart.forEach(function(item) {
+
+            total += item.price;
+
+            let li = document.createElement("li");
+
+            li.textContent =
+                item.name + " - ₹" + item.price;
+
+            list.appendChild(li);
+        });
+
+        document.getElementById("total").textContent =
+            "Total: ₹" + total;
+    }
+</script>
+
+</body>
+</html>

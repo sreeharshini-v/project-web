@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flexbox Alignment and Ordering</title>
+
+    <style>
+        .container {
+            height: 400px;
+            display: flex;
+
+            justify-content: space-around;
+            align-items: center;
+
+            flex-direction: row;
+            gap: 20px;
+
+            border: 3px solid black;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background: steelblue;
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .one {
+            order: 3;
+        }
+
+        .two {
+            order: 1;
+        }
+
+        .three {
+            order: 2;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Flexbox Alignment and Ordering</h1>
+
+<div class="container">
+
+    <div class="box one">One</div>
+    <div class="box two">Two</div>
+    <div class="box three">Three</div>
+
+</div>
+
+</body>
+</html>

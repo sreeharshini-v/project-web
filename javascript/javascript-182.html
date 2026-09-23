@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keyboard Controlled Object</title>
+
+    <style>
+        #gameArea {
+            width: 600px;
+            height: 300px;
+            border: 2px solid black;
+            position: relative;
+        }
+
+        #object {
+            width: 40px;
+            height: 40px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Keyboard-Controlled Object</h2>
+
+<p>Use Arrow Keys to move the box.</p>
+
+<div id="gameArea">
+    <div id="object"></div>
+</div>
+
+<script>
+const object = document.getElementById("object");
+
+let x = 0;
+let y = 0;
+
+document.addEventListener("keydown", function(event) {
+
+    const step = 10;
+
+    if (event.key === "ArrowRight") {
+        x += step;
+    }
+
+    if (event.key === "ArrowLeft") {
+        x -= step;
+    }
+
+    if (event.key === "ArrowDown") {
+        y += step;
+    }
+
+    if (event.key === "ArrowUp") {
+        y -= step;
+    }
+
+    x = Math.max(0, Math.min(560, x));
+    y = Math.max(0, Math.min(260, y));
+
+    object.style.left = x + "px";
+    object.style.top = y + "px";
+});
+</script>
+
+</body>
+</html>

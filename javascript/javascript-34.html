@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counter Application</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            margin-top: 100px;
+        }
+
+        #count {
+            font-size: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Counter</h2>
+
+<div id="count">0</div>
+
+<button onclick="decrement()">-</button>
+<button onclick="reset()">Reset</button>
+<button onclick="increment()">+</button>
+
+<script>
+let count = 0;
+
+function updateCount() {
+    document.getElementById("count").innerHTML = count;
+}
+
+function increment() {
+    count++;
+    updateCount();
+}
+
+function decrement() {
+    count--;
+    updateCount();
+}
+
+function reset() {
+    count = 0;
+    updateCount();
+}
+</script>
+
+</body>
+</html>

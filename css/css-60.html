@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Portfolio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: #222;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+        }
+
+        section {
+            min-height: 500px;
+            padding: 80px 10%;
+        }
+
+        #home {
+            background: linear-gradient(120deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+        }
+
+        #about {
+            background: #f5f5f5;
+        }
+
+        #skills {
+            background: #e8f0ff;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill {
+            background: blue;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 20px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project {
+            padding: 30px;
+            background: white;
+            box-shadow: 0 5px 15px #aaa;
+        }
+
+        #contact {
+            background: #222;
+            color: white;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 12px 30px;
+            background: blue;
+            color: white;
+            border: none;
+        }
+
+        @media(max-width:700px) {
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                display: block;
+                margin: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+    <h1>My Portfolio</h1>
+    <h2>Web Developer</h2>
+    <p>Welcome to my personal portfolio website.</p>
+</section>
+
+<section id="about">
+    <h1>About Me</h1>
+    <p>
+        I am a student interested in web development,
+        programming and modern technologies.
+    </p>
+</section>
+
+<section id="skills">
+    <h1>My Skills</h1>
+
+    <div class="skills">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Python</div>
+        <div class="skill">SQL</div>
+    </div>
+</section>
+
+<section id="projects">
+    <h1>My Projects</h1>
+
+    <div class="projects">
+
+        <div class="project">
+            <h2>Weather App</h2>
+            <p>A responsive weather application.</p>
+        </div>
+
+        <div class="project">
+            <h2>Student System</h2>
+            <p>A student management project.</p>
+        </div>
+
+        <div class="project">
+            <h2>Shopping Website</h2>
+            <p>An online shopping interface.</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact">
+    <h1>Contact Me</h1>
+
+    <form>
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
+        <textarea placeholder="Your Message"></textarea>
+        <button>Send Message</button>
+    </form>
+</section>
+
+</body>
+</html>

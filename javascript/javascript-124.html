@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Style</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        #box {
+            width: 250px;
+            padding: 30px;
+            margin: 20px auto;
+            background-color: lightblue;
+        }
+
+        button {
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box">
+        Style will change
+    </div>
+
+    <button onclick="changeStyle()">
+        Change Style
+    </button>
+
+    <script>
+        function changeStyle() {
+
+            let box = document.getElementById("box");
+
+            box.style.backgroundColor = "orange";
+            box.style.color = "white";
+            box.style.fontSize = "25px";
+            box.style.borderRadius = "15px";
+            box.style.padding = "50px";
+        }
+    </script>
+
+</body>
+</html>

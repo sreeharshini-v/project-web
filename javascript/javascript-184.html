@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Double Click Counter</title>
+</head>
+<body>
+
+<h2>Double-Click Counter</h2>
+
+<button id="button">Double Click Me</button>
+
+<h3>Double Clicks: <span id="count">0</span></h3>
+
+<script>
+let count = 0;
+
+document.getElementById("button").addEventListener("dblclick", function() {
+
+    count++;
+
+    document.getElementById("count").textContent = count;
+});
+</script>
+
+</body>
+</html>

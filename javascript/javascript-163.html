@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>keyup Event</title>
+</head>
+<body>
+
+<h2>keyup Event</h2>
+
+<input type="text" id="input" placeholder="Press and release a key">
+
+<p id="message"></p>
+
+<script>
+document.getElementById("input").addEventListener("keyup", function(event) {
+    document.getElementById("message").textContent =
+        "Key released: " + event.key;
+});
+</script>
+
+</body>
+</html>

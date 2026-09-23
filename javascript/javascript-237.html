@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>History Object</title>
+</head>
+<body>
+
+<h2>History Object</h2>
+
+<button onclick="goBack()">Back</button>
+<button onclick="goForward()">Forward</button>
+
+<p id="output"></p>
+
+<script>
+function goBack() {
+    history.back();
+}
+
+function goForward() {
+    history.forward();
+}
+
+document.getElementById("output").innerHTML =
+    "Number of history entries: " + history.length;
+</script>
+
+</body>
+</html>

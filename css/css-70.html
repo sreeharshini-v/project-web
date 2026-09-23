@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Only Modal</title>
+
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        .open {
+            padding: 15px 25px;
+            background: blue;
+            color: white;
+            text-decoration: none;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.7);
+
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal:target {
+            display: flex;
+        }
+
+        .content {
+            background: white;
+            padding: 40px;
+            width: 350px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .close {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: red;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>CSS Modal</h1>
+
+<a class="open" href="#popup">Open Popup</a>
+
+<div class="modal" id="popup">
+
+    <div class="content">
+        <h2>Hello!</h2>
+
+        <p>
+            This popup is created using only HTML and CSS.
+        </p>
+
+        <a class="close" href="#">Close</a>
+    </div>
+
+</div>
+
+</body>
+</html>

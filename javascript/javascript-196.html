@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Date of Birth Validation</title>
+</head>
+<body>
+
+<h2>Date of Birth Validation</h2>
+
+<input type="date" id="dob">
+<button onclick="validateDOB()">Validate</button>
+
+<p id="message"></p>
+
+<script>
+function validateDOB() {
+    const dob = document.getElementById("dob").value;
+
+    if (dob === "") {
+        document.getElementById("message").textContent =
+            "Please select your date of birth.";
+        return;
+    }
+
+    const selectedDate = new Date(dob);
+    const today = new Date();
+
+    if (selectedDate > today) {
+        document.getElementById("message").textContent =
+            "Date of birth cannot be in the future.";
+    } else {
+        document.getElementById("message").textContent =
+            "Valid date of birth.";
+    }
+}
+</script>
+
+</body>
+</html>

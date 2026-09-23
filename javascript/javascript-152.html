@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Counter</title>
+</head>
+<body>
+
+<h2>Live Word Counter</h2>
+
+<textarea id="text" rows="8" cols="50"
+    placeholder="Type something..."></textarea>
+
+<p>Words: <span id="count">0</span></p>
+
+<script>
+const text = document.getElementById("text");
+const count = document.getElementById("count");
+
+text.addEventListener("input", function () {
+
+    const value = text.value.trim();
+
+    if (value === "") {
+        count.textContent = 0;
+    } else {
+        count.textContent = value.split(/\s+/).length;
+    }
+});
+</script>
+
+</body>
+</html>

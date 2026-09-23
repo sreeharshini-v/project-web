@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drag and Drop</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+
+        #dragItem {
+            width: 120px;
+            height: 120px;
+            background-color: lightblue;
+            margin: 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: grab;
+            border-radius: 10px;
+        }
+
+        #dropZone {
+            width: 300px;
+            height: 200px;
+            border: 3px dashed black;
+            margin: 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #dropZone.active {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Drag and Drop Application</h2>
+
+<div id="dragItem" draggable="true">
+    Drag Me
+</div>
+
+<div id="dropZone">
+    Drop Here
+</div>
+
+<p id="output"></p>
+
+<script>
+let dragItem = document.getElementById("dragItem");
+let dropZone = document.getElementById("dropZone");
+let output = document.getElementById("output");
+
+dragItem.addEventListener("dragstart", function(event) {
+
+    event.dataTransfer.setData(
+        "text/plain",
+        "dragItem"
+    );
+
+    output.innerHTML = "Dragging started...";
+});
+
+dropZone.addEventListener("dragover", function(event) {
+
+    event.preventDefault();
+
+    dropZone.classList.add("active");
+});
+
+dropZone.addEventListener("dragleave", function() {
+
+    dropZone.classList.remove("active");
+});
+
+dropZone.addEventListener("drop", function(event) {
+
+    event.preventDefault();
+
+    let data = event.dataTransfer.getData("text/plain");
+
+    if (data === "dragItem") {
+
+        dropZone.appendChild(dragItem);
+
+        dropZone.classList.remove("active");
+
+        output.innerHTML =
+            "Item dropped successfully!";
+    }
+});
+</script>
+
+</body>
+</html>

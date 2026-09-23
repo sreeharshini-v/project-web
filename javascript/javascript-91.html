@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Validation</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #e8f0fe;
+        }
+
+        .login-box {
+            width: 350px;
+            margin: 100px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-box">
+    <h2>Login Form</h2>
+
+    <form id="loginForm">
+
+        <input type="text" id="username" placeholder="Username">
+        <p class="error" id="usernameError"></p>
+
+        <input type="password" id="password" placeholder="Password">
+        <p class="error" id="passwordError"></p>
+
+        <button type="submit">Login</button>
+
+        <p class="success" id="message"></p>
+    </form>
+</div>
+
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        let username = document.getElementById("username").value.trim();
+        let password = document.getElementById("password").value;
+
+        document.getElementById("usernameError").textContent = "";
+        document.getElementById("passwordError").textContent = "";
+        document.getElementById("message").textContent = "";
+
+        let valid = true;
+
+        if (username === "") {
+            document.getElementById("usernameError").textContent =
+                "Username is required";
+            valid = false;
+        }
+
+        if (password === "") {
+            document.getElementById("passwordError").textContent =
+                "Password is required";
+            valid = false;
+        } else if (password.length < 6) {
+            document.getElementById("passwordError").textContent =
+                "Password must contain at least 6 characters";
+            valid = false;
+        }
+
+        if (valid) {
+            document.getElementById("message").textContent =
+                "Login successful!";
+        }
+    });
+</script>
+
+</body>
+</html>

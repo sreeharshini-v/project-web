@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Overflow</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 120px;
+            border: 3px solid blue;
+            margin: 20px;
+            padding: 10px;
+        }
+
+        .hidden {
+            overflow: hidden;
+        }
+
+        .scroll {
+            overflow: scroll;
+        }
+
+        .auto {
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box hidden">
+    This is a long text demonstrating the hidden overflow property.
+    Extra content will be clipped when it goes outside the box.
+</div>
+
+<div class="box scroll">
+    This is a long text demonstrating the scroll overflow property.
+    Scrollbars are provided when content exceeds the box.
+</div>
+
+<div class="box auto">
+    This is a long text demonstrating the auto overflow property.
+    A scrollbar appears when necessary.
+</div>
+
+</body>
+</html>

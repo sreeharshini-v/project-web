@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Validation</title>
+
+    <style>
+        .valid {
+            border: 2px solid green;
+        }
+
+        .invalid {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Real-Time Validation</h2>
+
+<input type="text" id="name" placeholder="Enter name">
+
+<p id="message"></p>
+
+<script>
+const nameInput = document.getElementById("name");
+
+nameInput.addEventListener("input", function() {
+
+    if (/^[A-Za-z ]{3,}$/.test(nameInput.value)) {
+
+        nameInput.className = "valid";
+        document.getElementById("message").textContent =
+            "Valid name.";
+
+    } else {
+
+        nameInput.className = "invalid";
+        document.getElementById("message").textContent =
+            "Enter at least 3 alphabetic characters.";
+    }
+});
+</script>
+
+</body>
+</html>

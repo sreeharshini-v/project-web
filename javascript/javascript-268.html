@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auto Save Form</title>
+</head>
+<body>
+
+<h2>Auto-Save Form</h2>
+
+<input type="text" id="name" placeholder="Name">
+<br><br>
+
+<input type="email" id="email" placeholder="Email">
+<br><br>
+
+<textarea id="message" placeholder="Message"></textarea>
+
+<script>
+let fields = ["name", "email", "message"];
+
+fields.forEach(function(field) {
+
+    let element = document.getElementById(field);
+
+    element.value =
+        localStorage.getItem(field) || "";
+
+    element.addEventListener("input", function() {
+        localStorage.setItem(field, element.value);
+    });
+});
+</script>
+
+</body>
+</html>

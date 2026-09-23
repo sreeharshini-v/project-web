@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Navigator Object</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #eef2f3;
+        }
+
+        .container {
+            width: 550px;
+            margin: 50px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>JavaScript Navigator Object</h2>
+
+    <button onclick="showNavigatorInfo()">
+        Show Browser Information
+    </button>
+
+    <div id="output"></div>
+
+</div>
+
+<script>
+    function showNavigatorInfo() {
+
+        let n = navigator;
+
+        document.getElementById("output").innerHTML =
+            "<strong>Browser:</strong> " + n.appName + "<br>" +
+            "<strong>Platform:</strong> " + n.platform + "<br>" +
+            "<strong>User Agent:</strong> " + n.userAgent + "<br>" +
+            "<strong>Language:</strong> " + n.language + "<br>" +
+            "<strong>Online:</strong> " + n.onLine + "<br>" +
+            "<strong>Cookies Enabled:</strong> " + n.cookieEnabled;
+    }
+</script>
+
+</body>
+</html>

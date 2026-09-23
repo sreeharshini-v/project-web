@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Bubbling</title>
+
+    <style>
+        #parent {
+            padding: 40px;
+            background-color: lightblue;
+        }
+
+        #child {
+            padding: 20px;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Event Bubbling</h2>
+
+<div id="parent">
+    Parent
+    <button id="child">Child Button</button>
+</div>
+
+<p id="message"></p>
+
+<script>
+document.getElementById("parent").addEventListener("click", function() {
+    document.getElementById("message").textContent =
+        "Parent event executed due to bubbling.";
+});
+
+document.getElementById("child").addEventListener("click", function(event) {
+    document.getElementById("message").textContent =
+        "Child event executed first.";
+});
+</script>
+
+</body>
+</html>

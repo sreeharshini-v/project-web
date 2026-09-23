@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Admission Form</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #eaf2f8;
+        }
+
+        .container {
+            width: 500px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 9px;
+            margin: 6px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        .success {
+            color: green;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>College Admission Form</h2>
+
+    <form id="admissionForm">
+
+        <label>Student Name:</label>
+        <input type="text" id="name">
+        <p class="error" id="nameError"></p>
+
+        <label>Email:</label>
+        <input type="email" id="email">
+        <p class="error" id="emailError"></p>
+
+        <label>Phone:</label>
+        <input type="text" id="phone">
+        <p class="error" id="phoneError"></p>
+
+        <label>Date of Birth:</label>
+        <input type="date" id="dob">
+        <p class="error" id="dobError"></p>
+
+        <label>Qualification:</label>
+        <select id="qualification">
+            <option value="">Select Qualification</option>
+            <option>10th</option>
+            <option>12th</option>
+            <option>Diploma</option>
+        </select>
+        <p class="error" id="qualificationError"></p>
+
+        <label>Course:</label>
+        <select id="course">
+            <option value="">Select Course</option>
+            <option>BCA</option>
+            <option>B.Sc Computer Science</option>
+            <option>B.Tech</option>
+            <option>B.Com</option>
+        </select>
+        <p class="error" id="courseError"></p>
+
+        <button type="submit">Apply for Admission</button>
+
+        <p class="success" id="success"></p>
+    </form>
+
+</div>
+
+<script>
+    document.getElementById("admissionForm").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let phone = document.getElementById("phone").value.trim();
+        let dob = document.getElementById("dob").value;
+        let qualification =
+            document.getElementById("qualification").value;
+        let course = document.getElementById("course").value;
+
+        document.querySelectorAll(".error").forEach(function(element) {
+            element.textContent = "";
+        });
+
+        document.getElementById("success").textContent = "";
+
+        let valid = true;
+
+        if (name === "") {
+            document.getElementById("nameError").textContent =
+                "Student name is required";
+            valid = false;
+        }
+
+        let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+        if (email === "") {
+            document.getElementById("emailError").textContent =
+                "Email is required";
+            valid = false;
+        } else if (!emailPattern.test(email)) {
+            document.getElementById("emailError").textContent =
+                "Enter a valid email";
+            valid = false;
+        }
+
+        if (!/^[0-9]{10}$/.test(phone)) {
+            document.getElementById("phoneError").textContent =
+                "Enter a valid 10-digit phone number";
+            valid = false;
+        }
+
+        if (dob === "") {
+            document.getElementById("dobError").textContent =
+                "Date of birth is required";
+            valid = false;
+        }
+
+        if (qualification === "") {
+            document.getElementById("qualificationError").textContent =
+                "Please select qualification";
+            valid = false;
+        }
+
+        if (course === "") {
+            document.getElementById("courseError").textContent =
+                "Please select a course";
+            valid = false;
+        }
+
+        if (valid) {
+            document.getElementById("success").textContent =
+                "Admission application submitted successfully!";
+        }
+    });
+</script>
+
+</body>
+</html>

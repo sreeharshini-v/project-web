@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sort Table Records</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin: 40px;
+        }
+
+        table {
+            width: 600px;
+            max-width: 100%;
+            margin: 30px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Sort Student Records</h1>
+
+    <button onclick="sortByName()">
+        Sort by Name
+    </button>
+
+    <button onclick="sortByMarks()">
+        Sort by Marks
+    </button>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+
+        <tbody id="tableBody">
+
+            <tr>
+                <td>Rahul</td>
+                <td>BCA</td>
+                <td>75</td>
+            </tr>
+
+            <tr>
+                <td>Anu</td>
+                <td>B.Sc</td>
+                <td>92</td>
+            </tr>
+
+            <tr>
+                <td>Priya</td>
+                <td>BCA</td>
+                <td>85</td>
+            </tr>
+
+            <tr>
+                <td>Kiran</td>
+                <td>B.Tech</td>
+                <td>68</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <script>
+        function getRows() {
+
+            return Array.from(
+                document.querySelectorAll(
+                    "#tableBody tr"
+                )
+            );
+        }
+
+        function sortByName() {
+
+            let rows = getRows();
+
+            rows.sort(function(a, b) {
+
+                let nameA =
+                    a.cells[0].textContent.toLowerCase();
+
+                let nameB =
+                    b.cells[0].textContent.toLowerCase();
+
+                return nameA.localeCompare(nameB);
+            });
+
+            let tableBody =
+                document.getElementById("tableBody");
+
+            rows.forEach(function(row) {
+                tableBody.appendChild(row);
+            });
+        }
+
+        function sortByMarks() {
+
+            let rows = getRows();
+
+            rows.sort(function(a, b) {
+
+                let marksA =
+                    Number(a.cells[2].textContent);
+
+                let marksB =
+                    Number(b.cells[2].textContent);
+
+                return marksB - marksA;
+            });
+
+            let tableBody =
+                document.getElementById("tableBody");
+
+            rows.forEach(function(row) {
+                tableBody.appendChild(row);
+            });
+        }
+    </script>
+
+</body>
+</html>

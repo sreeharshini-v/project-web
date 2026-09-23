@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM & Event-Based Experiments</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 40px;
+            transition: background-color 0.3s;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            padding: 30px;
+            border: 2px solid #333;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 18px;
+            margin: 8px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #counter {
+            font-size: 40px;
+            margin: 20px;
+        }
+
+        img {
+            width: 250px;
+            height: 150px;
+            object-fit: cover;
+            margin: 15px;
+        }
+
+        #message {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>DOM & Event-Based Experiments</h1>
+
+    <!-- Change Text -->
+    <h2 id="text">Original Text</h2>
+    <button onclick="changeText()">Change Text</button>
+
+    <hr>
+
+    <!-- Background Color -->
+    <h2>Change Background Color</h2>
+    <button onclick="changeColor()">Change Color</button>
+    <button onclick="resetColor()">Reset Color</button>
+
+    <hr>
+
+    <!-- Show / Hide -->
+    <h2 id="content">This content can be shown or hidden.</h2>
+
+    <button onclick="hideContent()">Hide</button>
+    <button onclick="showContent()">Show</button>
+
+    <hr>
+
+    <!-- Image Change -->
+    <h2>Change Image</h2>
+
+    <img id="myImage"
+         src="https://via.placeholder.com/250x150?text=Image+1"
+         alt="Sample Image">
+
+    <br>
+
+    <button onclick="changeImage()">Change Image</button>
+
+    <hr>
+
+    <!-- Button Event -->
+    <h2>Button Click Event</h2>
+
+    <button onclick="buttonClicked()">Click Me</button>
+
+    <p id="message"></p>
+
+    <hr>
+
+    <!-- Counter -->
+    <h2>Counter</h2>
+
+    <div id="counter">0</div>
+
+    <button onclick="decrement()">−</button>
+    <button onclick="resetCounter()">Reset</button>
+    <button onclick="increment()">+</button>
+
+</div>
+
+<script>
+
+    // 1. Change Text
+    function changeText() {
+        document.getElementById("text").innerHTML =
+            "Text changed successfully using JavaScript!";
+    }
+
+    // 2. Change Background Color
+    function changeColor() {
+        document.body.style.backgroundColor = "lightblue";
+    }
+
+    function resetColor() {
+        document.body.style.backgroundColor = "white";
+    }
+
+    // 3. Show / Hide Element
+    function hideContent() {
+        document.getElementById("content").style.display = "none";
+    }
+
+    function showContent() {
+        document.getElementById("content").style.display = "block";
+    }
+
+    // 4. Change Image
+    function changeImage() {
+        document.getElementById("myImage").src =
+            "https://via.placeholder.com/250x150?text=Image+2";
+    }
+
+    // 5. Button Click Event
+    function buttonClicked() {
+        document.getElementById("message").innerHTML =
+            "Button clicked successfully!";
+    }
+
+    // 6. Counter
+    let count = 0;
+
+    function updateCounter() {
+        document.getElementById("counter").innerHTML = count;
+    }
+
+    function increment() {
+        count++;
+        updateCounter();
+    }
+
+    function decrement() {
+        count--;
+        updateCounter();
+    }
+
+    function resetCounter() {
+        count = 0;
+        updateCounter();
+    }
+
+</script>
+
+</body>
+</html>

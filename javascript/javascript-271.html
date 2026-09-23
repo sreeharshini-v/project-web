@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Marks Database</title>
+</head>
+<body>
+
+<h2>Student Marks Database</h2>
+
+<input type="text" id="name" placeholder="Student Name">
+<input type="number" id="marks" placeholder="Marks">
+
+<button onclick="addStudent()">Add Student</button>
+
+<table border="1" cellpadding="10">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Marks</th>
+        </tr>
+    </thead>
+
+    <tbody id="studentTable"></tbody>
+</table>
+
+<script>
+function getStudents() {
+    return JSON.parse(localStorage.getItem("marks")) || [];
+}
+
+function addStudent() {
+
+    let name = document.getElementById("name").value;
+    let marks = document.getElementById("marks").value;
+
+    let students = getStudents();
+
+    students.push({
+        name: name,
+        marks: marks
+    });
+
+    localStorage.setItem(
+        "marks",
+        JSON.stringify(students)
+    );
+
+    displayStudents();
+}
+
+function displayStudents() {
+
+    let students = getStudents();
+
+    let output = "";
+
+    students.forEach(function(student) {
+        output += `
+            <tr>
+                <td>${student.name}</td>
+                <td>${student.marks}</td>
+            </tr>
+        `;
+    });
+
+    document.getElementById("studentTable").innerHTML =
+        output;
+}
+
+displayStudents();
+</script>
+
+</body>
+</html>

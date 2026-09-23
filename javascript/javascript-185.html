@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reaction Time Game</title>
+
+    <style>
+        #game {
+            width: 400px;
+            height: 250px;
+            border: 2px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: lightgray;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Reaction-Time Game</h2>
+
+<p>Click the box. Wait for it to turn green, then click as quickly as possible.</p>
+
+<div id="game">Click to Start</div>
+
+<p id="result"></p>
+
+<script>
+const game = document.getElementById("game");
+const result = document.getElementById("result");
+
+let startTime = 0;
+let timer = null;
+let waiting = false;
+
+game.addEventListener("click", function() {
+
+    if (!waiting && startTime === 0) {
+
+        game.textContent = "Wait...";
+        game.style.backgroundColor = "orange";
+
+        waiting = true;
+
+        const delay = Math.floor(Math.random() * 3000) + 2000;
+
+        timer = setTimeout(function() {
+
+            game.textContent = "CLICK NOW!";
+            game.style.backgroundColor = "lightgreen";
+
+            startTime = Date.now();
+            waiting = false;
+
+        }, delay);
+
+    } else if (waiting) {
+
+        clearTimeout(timer);
+
+        game.textContent = "Too Early! Click to Try Again.";
+        game.style.backgroundColor = "lightgray";
+
+        waiting = false;
+        startTime = 0;
+
+    } else if (startTime > 0) {
+
+        const reactionTime = Date.now() - startTime;
+
+        result.textContent =
+            "Your reaction time: " + reactionTime + " ms";
+
+        game.textContent = "Click to Play Again";
+        game.style.backgroundColor = "lightgray";
+
+        startTime = 0;
+    }
+});
+</script>
+
+</body>
+</html>

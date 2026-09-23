@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>setTimeout()</title>
+</head>
+<body>
+
+<h2>setTimeout() Demonstration</h2>
+
+<button onclick="startTimer()">Start</button>
+
+<p id="message">Waiting...</p>
+
+<script>
+function startTimer() {
+    document.getElementById("message").innerHTML =
+        "Message will appear after 3 seconds...";
+
+    setTimeout(function() {
+        document.getElementById("message").innerHTML =
+            "3 seconds completed!";
+    }, 3000);
+}
+</script>
+
+</body>
+</html>

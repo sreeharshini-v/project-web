@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Table</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 500px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Dynamic Table</h2>
+
+<button onclick="createTable()">Create Table</button>
+
+<div id="tableContainer"></div>
+
+<script>
+function createTable() {
+
+    let students = [
+        ["101", "Rahul", "20"],
+        ["102", "Priya", "21"],
+        ["103", "Arun", "20"],
+        ["104", "Divya", "22"]
+    ];
+
+    let table = document.createElement("table");
+
+    let headerRow = table.insertRow();
+
+    let headers = ["ID", "Name", "Age"];
+
+    headers.forEach(function(header) {
+
+        let cell = document.createElement("th");
+
+        cell.innerHTML = header;
+
+        headerRow.appendChild(cell);
+    });
+
+    students.forEach(function(student) {
+
+        let row = table.insertRow();
+
+        student.forEach(function(data) {
+
+            let cell = row.insertCell();
+
+            cell.innerHTML = data;
+        });
+    });
+
+    document.getElementById("tableContainer").innerHTML = "";
+
+    document.getElementById("tableContainer")
+        .appendChild(table);
+}
+</script>
+
+</body>
+</html>

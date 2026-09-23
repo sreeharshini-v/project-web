@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Methods</title>
+</head>
+<body>
+
+<h2>DOM Methods Demonstration</h2>
+
+<div id="container">
+    <p id="oldText">This is the original paragraph.</p>
+</div>
+
+<button onclick="createElementDemo()">createElement()</button>
+<button onclick="appendElement()">appendChild()</button>
+<button onclick="removeElement()">remove()</button>
+<button onclick="replaceElement()">replaceChild()</button>
+
+<script>
+function createElementDemo() {
+
+    const newElement = document.createElement("p");
+
+    newElement.textContent = "New paragraph created using createElement().";
+
+    newElement.id = "newParagraph";
+
+    document.getElementById("container").appendChild(newElement);
+}
+
+function appendElement() {
+
+    const element = document.createElement("p");
+
+    element.textContent = "This paragraph was added using appendChild().";
+
+    document.getElementById("container").appendChild(element);
+}
+
+function removeElement() {
+
+    const element = document.getElementById("newParagraph");
+
+    if (element) {
+        element.remove();
+    } else {
+        alert("Element not found.");
+    }
+}
+
+function replaceElement() {
+
+    const oldElement = document.getElementById("oldText");
+
+    const newElement = document.createElement("p");
+
+    newElement.textContent = "The original paragraph has been replaced.";
+
+    document.getElementById("container")
+        .replaceChild(newElement, oldElement);
+}
+</script>
+
+</body>
+</html>

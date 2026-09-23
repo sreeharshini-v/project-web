@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart</title>
+</head>
+<body>
+
+<h2>Shopping Cart</h2>
+
+<button onclick="addProduct('Laptop')">Add Laptop</button>
+<button onclick="addProduct('Mobile')">Add Mobile</button>
+<button onclick="addProduct('Headphones')">Add Headphones</button>
+
+<h3>Cart</h3>
+<ul id="cart"></ul>
+
+<script>
+function getCart() {
+    return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function addProduct(product) {
+    let cart = getCart();
+
+    cart.push(product);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    displayCart();
+}
+
+function displayCart() {
+    let cart = getCart();
+
+    document.getElementById("cart").innerHTML =
+        cart.map(item => `<li>${item}</li>`).join("");
+}
+
+displayCart();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Application</title>
+</head>
+<body>
+
+<h2>JavaScript Quiz</h2>
+
+<p>1. Which language is used to make webpages interactive?</p>
+
+<input type="radio" name="q1" value="HTML"> HTML<br>
+<input type="radio" name="q1" value="CSS"> CSS<br>
+<input type="radio" name="q1" value="JavaScript"> JavaScript<br>
+
+<p>2. Which keyword declares a constant in JavaScript?</p>
+
+<input type="radio" name="q2" value="var"> var<br>
+<input type="radio" name="q2" value="const"> const<br>
+<input type="radio" name="q2" value="let"> let<br>
+
+<p>3. Which method prints output in the browser console?</p>
+
+<input type="radio" name="q3" value="console.log"> console.log<br>
+<input type="radio" name="q3" value="print"> print<br>
+<input type="radio" name="q3" value="write"> write<br>
+
+<br>
+
+<button onclick="checkQuiz()">Submit Quiz</button>
+
+<h3 id="result"></h3>
+
+<script>
+function checkQuiz() {
+    let score = 0;
+
+    let q1 = document.querySelector('input[name="q1"]:checked');
+    let q2 = document.querySelector('input[name="q2"]:checked');
+    let q3 = document.querySelector('input[name="q3"]:checked');
+
+    if (q1 && q1.value === "JavaScript") score++;
+    if (q2 && q2.value === "const") score++;
+    if (q3 && q3.value === "console.log") score++;
+
+    document.getElementById("result").innerHTML =
+        "Your score is " + score + " out of 3.";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Multiple Elements</title>
+</head>
+<body>
+
+<h2 class="text">Heading One</h2>
+<p class="text">Paragraph One</p>
+<p class="text">Paragraph Two</p>
+<p class="text">Paragraph Three</p>
+
+<button onclick="changeElements()">Change All</button>
+
+<script>
+function changeElements() {
+
+    let elements = document.getElementsByClassName("text");
+
+    for (let element of elements) {
+
+        element.style.color = "blue";
+        element.style.fontSize = "20px";
+        element.style.fontWeight = "bold";
+    }
+}
+</script>
+
+</body>
+</html>

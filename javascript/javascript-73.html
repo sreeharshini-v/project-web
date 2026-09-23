@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic CSS Classes</title>
+
+    <style>
+        .highlight {
+            background-color: yellow;
+            color: red;
+            font-size: 25px;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<h2 id="text">Dynamic CSS Class Example</h2>
+
+<button onclick="addClass()">Add Class</button>
+<button onclick="removeClass()">Remove Class</button>
+
+<script>
+function addClass() {
+
+    document.getElementById("text")
+        .classList.add("highlight");
+}
+
+function removeClass() {
+
+    document.getElementById("text")
+        .classList.remove("highlight");
+}
+</script>
+
+</body>
+</html>

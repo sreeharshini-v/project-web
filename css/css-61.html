@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grid Template Areas</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            grid-template-rows: 80px 1fr 60px;
+
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+
+            min-height: 100vh;
+        }
+
+        header {
+            grid-area: header;
+            background: navy;
+            color: white;
+            padding: 20px;
+        }
+
+        aside {
+            grid-area: sidebar;
+            background: #eeeeee;
+            padding: 20px;
+        }
+
+        main {
+            grid-area: main;
+            padding: 30px;
+        }
+
+        footer {
+            grid-area: footer;
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+
+                grid-template-areas:
+                    "header"
+                    "sidebar"
+                    "main"
+                    "footer";
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h2>My Website</h2>
+    </header>
+
+    <aside>
+        <h3>Menu</h3>
+        <p>Home</p>
+        <p>About</p>
+        <p>Services</p>
+        <p>Contact</p>
+    </aside>
+
+    <main>
+        <h1>CSS Grid Template Areas</h1>
+        <p>
+            This page uses named grid areas for the header,
+            sidebar, main content and footer.
+        </p>
+    </main>
+
+    <footer>
+        © 2026 My Website
+    </footer>
+
+</div>
+
+</body>
+</html>

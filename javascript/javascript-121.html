@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Portfolio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h2 {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            color: #00bcd4;
+        }
+
+        section {
+            padding: 80px 10%;
+        }
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(
+                135deg,
+                #dff6ff,
+                #ffffff
+            );
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 22px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            margin-top: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .about {
+            background: white;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .skill {
+            background: #eee;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .project {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px #ccc;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+        }
+
+        form {
+            max-width: 500px;
+            margin: auto;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+        }
+
+        form textarea {
+            height: 120px;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        #topButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dark {
+            background: #121212;
+            color: white;
+        }
+
+        .dark .about,
+        .dark .project,
+        .dark form {
+            background: #1e1e1e;
+        }
+
+        .dark .skill {
+            background: #333;
+        }
+
+        .dark .hero {
+            background: #181818;
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+            }
+
+            nav {
+                margin-top: 10px;
+            }
+
+            nav a {
+                margin: 5px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <h2>My Portfolio</h2>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <button onclick="toggleTheme()">🌙</button>
+    </nav>
+
+</header>
+
+<section class="hero" id="home">
+
+    <div>
+        <h1>Hello, I'm a Web Developer</h1>
+
+        <p>
+            I create interactive and responsive websites.
+        </p>
+
+        <a class="btn" href="#projects">
+            View My Projects
+        </a>
+    </div>
+
+</section>
+
+<section class="about" id="about">
+
+    <h2>About Me</h2>
+
+    <p>
+        I am a student interested in web development,
+        programming and creating interactive applications
+        using HTML, CSS and JavaScript.
+    </p>
+
+</section>
+
+<section id="skills">
+
+    <h2>My Skills</h2>
+
+    <div class="skills">
+
+        <div class="skill">
+            <h3>HTML</h3>
+            <p>Web Structure</p>
+        </div>
+
+        <div class="skill">
+            <h3>CSS</h3>
+            <p>Web Design</p>
+        </div>
+
+        <div class="skill">
+            <h3>JavaScript</h3>
+            <p>Interactivity</p>
+        </div>
+
+        <div class="skill">
+            <h3>Python</h3>
+            <p>Programming</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="projects">
+
+    <h2>My Projects</h2>
+
+    <div class="projects">
+
+        <div class="project">
+            <h3>Calculator</h3>
+            <p>
+                A JavaScript-based digital calculator.
+            </p>
+            <button class="btn"
+                    onclick="showProject('Calculator')">
+                View
+            </button>
+        </div>
+
+        <div class="project">
+            <h3>To-Do List</h3>
+            <p>
+                An interactive task management application.
+            </p>
+            <button class="btn"
+                    onclick="showProject('To-Do List')">
+                View
+            </button>
+        </div>
+
+        <div class="project">
+            <h3>Weather App</h3>
+            <p>
+                A weather application using an API.
+            </p>
+            <button class="btn"
+                    onclick="showProject('Weather App')">
+                View
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="contact">
+
+    <h2>Contact Me</h2>
+
+    <form id="contactForm">
+
+        <input type="text"
+               id="name"
+               placeholder="Your Name">
+
+        <input type="email"
+               id="email"
+               placeholder="Your Email">
+
+        <textarea id="message"
+                  placeholder="Your Message"></textarea>
+
+        <button class="btn" type="submit">
+            Send Message
+        </button>
+
+        <p id="formMessage"></p>
+
+    </form>
+
+</section>
+
+<footer>
+
+    <p>© 2026 My Portfolio</p>
+
+</footer>
+
+<button id="topButton" onclick="goTop()">↑</button>
+
+<script>
+
+    function toggleTheme() {
+
+        document.body.classList.toggle("dark");
+
+        if (document.body.classList.contains("dark")) {
+            localStorage.setItem("portfolioTheme", "dark");
+        } else {
+            localStorage.setItem("portfolioTheme", "light");
+        }
+    }
+
+    let savedTheme =
+        localStorage.getItem("portfolioTheme");
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+    }
+
+    function showProject(projectName) {
+
+        alert(
+            "You selected the " +
+            projectName +
+            " project."
+        );
+    }
+
+    document.getElementById("contactForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            let name =
+                document.getElementById("name").value.trim();
+
+            let email =
+                document.getElementById("email").value.trim();
+
+            let message =
+                document.getElementById("message").value.trim();
+
+            let output =
+                document.getElementById("formMessage");
+
+            if (name === "" ||
+                email === "" ||
+                message === "") {
+
+                output.textContent =
+                    "Please fill in all fields.";
+
+                output.style.color = "red";
+
+                return;
+            }
+
+            output.textContent =
+                "Thank you, " + name +
+                "! Your message has been submitted.";
+
+            output.style.color = "green";
+
+            document.getElementById("contactForm").reset();
+        });
+
+    window.addEventListener("scroll", function() {
+
+        let button =
+            document.getElementById("topButton");
+
+        if (window.scrollY > 300) {
+            button.style.display = "block";
+        } else {
+            button.style.display = "none";
+        }
+    });
+
+    function goTop() {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+</script>
+
+</body>
+</html>

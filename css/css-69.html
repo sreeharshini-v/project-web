@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sliding Card Animation</title>
+
+    <style>
+        .container {
+            width: 300px;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        .card {
+            width: 300px;
+            padding: 50px;
+            background: royalblue;
+            color: white;
+            text-align: center;
+
+            animation: slide 3s infinite alternate;
+        }
+
+        @keyframes slide {
+            from {
+                transform: translateX(-100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Sliding Card</h1>
+
+<div class="container">
+    <div class="card">
+        <h2>Welcome</h2>
+        <p>This card slides into view.</p>
+    </div>
+</div>
+
+</body>
+</html>

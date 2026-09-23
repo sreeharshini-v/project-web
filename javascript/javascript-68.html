@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remove Elements</title>
+</head>
+<body>
+
+<h2>Remove HTML Elements</h2>
+
+<div id="container">
+
+    <p id="paragraph1">Paragraph 1</p>
+    <p id="paragraph2">Paragraph 2</p>
+
+</div>
+
+<button onclick="removeElement()">Remove Paragraph 1</button>
+
+<script>
+function removeElement() {
+
+    let element = document.getElementById("paragraph1");
+
+    if (element) {
+        element.remove();
+    }
+}
+</script>
+
+</body>
+</html>

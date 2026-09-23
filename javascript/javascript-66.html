@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Regular Expressions</title>
+</head>
+<body>
+
+<h2>Regular Expression Demo</h2>
+
+<input type="text" id="text"
+       placeholder="Enter text containing numbers">
+
+<button onclick="testRegex()">Test</button>
+
+<p id="output"></p>
+
+<script>
+function testRegex() {
+
+    let text = document.getElementById("text").value;
+
+    // Regular expression to find numbers
+    let pattern = /\d+/g;
+
+    let numbers = text.match(pattern);
+
+    if (numbers) {
+        document.getElementById("output").innerHTML =
+            "Numbers found: " + numbers.join(", ");
+    } else {
+        document.getElementById("output").innerHTML =
+            "No numbers found.";
+    }
+}
+</script>
+
+</body>
+</html>

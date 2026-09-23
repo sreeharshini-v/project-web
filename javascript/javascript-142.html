@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dependent Dropdown</title>
+</head>
+<body>
+
+<h2>Country → State → City</h2>
+
+<label>Country:</label>
+<select id="country">
+    <option value="">Select Country</option>
+    <option value="india">India</option>
+    <option value="usa">USA</option>
+</select>
+
+<br><br>
+
+<label>State:</label>
+<select id="state">
+    <option value="">Select State</option>
+</select>
+
+<br><br>
+
+<label>City:</label>
+<select id="city">
+    <option value="">Select City</option>
+</select>
+
+<script>
+const data = {
+    india: {
+        Telangana: ["Hyderabad", "Warangal", "Karimnagar"],
+        TamilNadu: ["Chennai", "Coimbatore", "Madurai"]
+    },
+    usa: {
+        California: ["Los Angeles", "San Francisco", "San Diego"],
+        Texas: ["Houston", "Dallas", "Austin"]
+    }
+};
+
+const country = document.getElementById("country");
+const state = document.getElementById("state");
+const city = document.getElementById("city");
+
+country.addEventListener("change", function () {
+    state.innerHTML = '<option value="">Select State</option>';
+    city.innerHTML = '<option value="">Select City</option>';
+
+    if (this.value) {
+        Object.keys(data[this.value]).forEach(function (stateName) {
+            const option = document.createElement("option");
+            option.value = stateName;
+            option.textContent = stateName;
+            state.appendChild(option);
+        });
+    }
+});
+
+state.addEventListener("change", function () {
+    city.innerHTML = '<option value="">Select City</option>';
+
+    if (this.value) {
+        data[country.value][this.value].forEach(function (cityName) {
+            const option = document.createElement("option");
+            option.value = cityName;
+            option.textContent = cityName;
+            city.appendChild(option);
+        });
+    }
+});
+</script>
+
+</body>
+</html>

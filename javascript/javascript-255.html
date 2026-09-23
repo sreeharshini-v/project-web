@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Record System</title>
+</head>
+<body>
+
+<h2>Student Record System</h2>
+
+<input type="text" id="name" placeholder="Student Name">
+<input type="number" id="age" placeholder="Age">
+<input type="text" id="course" placeholder="Course">
+
+<button onclick="addStudent()">Add Student</button>
+
+<div id="records"></div>
+
+<script>
+function addStudent() {
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+
+    let student = {
+        name: document.getElementById("name").value,
+        age: document.getElementById("age").value,
+        course: document.getElementById("course").value
+    };
+
+    students.push(student);
+
+    localStorage.setItem("students", JSON.stringify(students));
+
+    displayStudents();
+}
+
+function displayStudents() {
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+    let output = "";
+
+    students.forEach((student, index) => {
+        output += `
+            <p>
+                ${index + 1}. 
+                ${student.name} - 
+                ${student.age} - 
+                ${student.course}
+            </p>
+        `;
+    });
+
+    document.getElementById("records").innerHTML = output;
+}
+
+displayStudents();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Tooltip</title>
+
+    <style>
+        #tooltip {
+            position: absolute;
+            display: none;
+            background: black;
+            color: white;
+            padding: 8px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Dynamic Tooltip</h2>
+
+<button id="myButton">Move Mouse Here</button>
+
+<div id="tooltip"></div>
+
+<script>
+const button = document.getElementById("myButton");
+const tooltip = document.getElementById("tooltip");
+
+button.addEventListener("mouseenter", function () {
+    tooltip.textContent = "This is a dynamically created tooltip";
+    tooltip.style.display = "block";
+});
+
+button.addEventListener("mousemove", function (event) {
+    tooltip.style.left = event.pageX + 10 + "px";
+    tooltip.style.top = event.pageY + 10 + "px";
+});
+
+button.addEventListener("mouseleave", function () {
+    tooltip.style.display = "none";
+});
+</script>
+
+</body>
+</html>

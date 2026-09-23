@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Preference</title>
+</head>
+<body>
+
+<h2>Login Preference</h2>
+
+<label>
+    <input type="checkbox" id="remember">
+    Remember Me
+</label>
+
+<br><br>
+
+<button onclick="savePreference()">Save Preference</button>
+
+<p id="result"></p>
+
+<script>
+function savePreference() {
+    let remember = document.getElementById("remember").checked;
+
+    localStorage.setItem("rememberMe", remember);
+
+    document.getElementById("result").innerText =
+        "Preference saved: " + remember;
+}
+
+window.onload = function() {
+    let preference = localStorage.getItem("rememberMe");
+
+    if (preference !== null) {
+        document.getElementById("remember").checked =
+            preference === "true";
+    }
+};
+</script>
+
+</body>
+</html>

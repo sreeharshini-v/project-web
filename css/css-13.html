@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #eef2f3;
+        }
+
+        form {
+            width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+        }
+
+        input[type="submit"] {
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+
+    <form>
+        <h1>Registration</h1>
+
+        <label>Name</label>
+        <input type="text" placeholder="Enter name">
+
+        <label>Email</label>
+        <input type="email" placeholder="Enter email">
+
+        <label>Password</label>
+        <input type="password" placeholder="Enter password">
+
+        <label>Course</label>
+        <select>
+            <option>BCA</option>
+            <option>BSc</option>
+            <option>MCA</option>
+        </select>
+
+        <input type="submit" value="Register">
+    </form>
+
+</body>
+</html>

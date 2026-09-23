@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Capturing</title>
+
+    <style>
+        #parent {
+            padding: 40px;
+            background-color: lightblue;
+        }
+
+        #child {
+            padding: 20px;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Event Capturing</h2>
+
+<div id="parent">
+    Parent
+    <button id="child">Child Button</button>
+</div>
+
+<p id="message"></p>
+
+<script>
+document.getElementById("parent").addEventListener(
+    "click",
+    function() {
+        document.getElementById("message").textContent =
+            "Parent executed during capturing phase.";
+    },
+    true
+);
+
+document.getElementById("child").addEventListener(
+    "click",
+    function() {
+        document.getElementById("message").textContent =
+            "Child event executed.";
+    }
+);
+</script>
+
+</body>
+</html>

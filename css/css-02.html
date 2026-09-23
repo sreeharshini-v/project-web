@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Selectors</title>
+
+    <style>
+        * {
+            font-family: Arial;
+        }
+
+        h1 {
+            color: blue;
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
+
+        #special {
+            color: red;
+        }
+
+        p, h2 {
+            text-align: center;
+        }
+
+        div p {
+            color: green;
+        }
+
+        input[type="text"] {
+            border: 2px solid blue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSS Selectors</h1>
+
+    <h2 class="highlight">Class Selector</h2>
+
+    <p id="special">ID Selector</p>
+
+    <div>
+        <p>Descendant Selector</p>
+    </div>
+
+    <input type="text" placeholder="Attribute selector">
+
+</body>
+</html>

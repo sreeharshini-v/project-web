@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spread and Rest Operators</title>
+</head>
+<body>
+
+<h2>Spread and Rest Operators</h2>
+
+<p id="output"></p>
+
+<script>
+// Spread operator
+let numbers1 = [1, 2, 3];
+let numbers2 = [4, 5, 6];
+
+let combinedNumbers = [...numbers1, ...numbers2];
+
+// Rest operator
+function calculateSum(...numbers) {
+    let sum = 0;
+
+    for (let number of numbers) {
+        sum += number;
+    }
+
+    return sum;
+}
+
+let sum = calculateSum(10, 20, 30, 40);
+
+document.getElementById("output").innerHTML =
+    "Spread Result: " + combinedNumbers.join(", ") +
+    "<br>Rest Result: " + sum;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Event</title>
+</head>
+<body>
+
+<h2>Change Event</h2>
+
+<select id="course">
+    <option value="">Select Course</option>
+    <option value="HTML">HTML</option>
+    <option value="CSS">CSS</option>
+    <option value="JavaScript">JavaScript</option>
+</select>
+
+<p id="message"></p>
+
+<script>
+document.getElementById("course").addEventListener("change", function() {
+    document.getElementById("message").textContent =
+        "Selected: " + this.value;
+});
+</script>
+
+</body>
+</html>

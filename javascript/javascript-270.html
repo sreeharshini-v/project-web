@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Persistent Shopping Cart</title>
+</head>
+<body>
+
+<h2>Shopping Cart</h2>
+
+<button onclick="addItem('Laptop', 50000)">
+    Add Laptop
+</button>
+
+<button onclick="addItem('Mouse', 1000)">
+    Add Mouse
+</button>
+
+<button onclick="addItem('Keyboard', 2000)">
+    Add Keyboard
+</button>
+
+<h3>Cart</h3>
+
+<div id="cart"></div>
+
+<script>
+function getCart() {
+    return JSON.parse(localStorage.getItem("shoppingCart")) || [];
+}
+
+function addItem(name, price) {
+    let cart = getCart();
+
+    cart.push({
+        name: name,
+        price: price
+    });
+
+    localStorage.setItem(
+        "shoppingCart",
+        JSON.stringify(cart)
+    );
+
+    displayCart();
+}
+
+function displayCart() {
+    let cart = getCart();
+    let total = 0;
+
+    let output = "";
+
+    cart.forEach(function(item) {
+        total += item.price;
+
+        output +=
+            "<p>" +
+            item.name +
+            " - ₹" +
+            item.price +
+            "</p>";
+    });
+
+    output += "<h3>Total: ₹" + total + "</h3>";
+
+    document.getElementById("cart").innerHTML = output;
+}
+
+displayCart();
+</script>
+
+</body>
+</html>

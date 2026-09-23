@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiple Event Listeners</title>
+</head>
+<body>
+
+<h2>Multiple Event Listeners</h2>
+
+<button id="button">Click Me</button>
+
+<p id="message"></p>
+
+<script>
+const button = document.getElementById("button");
+
+button.addEventListener("click", function() {
+    document.getElementById("message").textContent =
+        "First event listener executed.";
+});
+
+button.addEventListener("click", function() {
+    document.body.style.backgroundColor = "lightyellow";
+});
+
+button.addEventListener("dblclick", function() {
+    alert("Double-click event executed.");
+});
+</script>
+
+</body>
+</html>
