@@ -1,0 +1,1 @@
+html-06.html references audio.mp3 and video.mp4. Add your own permitted audio/video files with these names to make the media demo play.

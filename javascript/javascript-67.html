@@ -1,27 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Add Elements Dynamically</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Validation Using Regular Expression</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.demo{max-width:520px;margin:20px auto;padding:24px;background:#f8fafc;border-radius:12px}
+.demo input{width:100%;padding:10px;margin:8px 0 14px;border:1px solid #cbd5e1;border-radius:8px}
+#result{margin-top:14px;font-weight:700}
+</style>
 </head>
 <body>
-
-<h2>Add Elements Dynamically</h2>
-
-<button onclick="addElement()">Add Paragraph</button>
-
-<div id="container"></div>
-
+<nav class="assignment-navigation" style="display:flex;gap:10px;flex-wrap:wrap;padding:12px;margin:0 0 20px;background:#eef2ff;border-radius:10px;">
+<a href="../index.html" style="text-decoration:none;font-weight:700;">Home</a>
+<a href="index.html" style="text-decoration:none;font-weight:700;">Back to JavaScript Programs</a>
+</nav>
+<main class="container">
+<section class="program-page">
+<h1>Email Validation Using Regular Expression</h1>
+<p>Enter an email address and validate it using a JavaScript regular expression.</p>
+<div class="demo">
+<label for="email">Email address</label>
+<input id="email" type="text" placeholder="example@email.com">
+<button class="button" onclick="validateEmail()">Validate</button>
+<p id="result"></p>
+</div>
+</section>
+</main>
 <script>
-function addElement() {
-
-    let paragraph = document.createElement("p");
-
-    paragraph.innerHTML =
-        "This paragraph was created using JavaScript.";
-
-    document.getElementById("container").appendChild(paragraph);
+function validateEmail(){
+    const email=document.getElementById("email").value.trim();
+    const pattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    document.getElementById("result").textContent =
+        pattern.test(email) ? "Valid email address" : "Invalid email address";
 }
 </script>
-
 </body>
 </html>
