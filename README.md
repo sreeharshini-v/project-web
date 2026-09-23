@@ -2,9 +2,9 @@
 
 ## Student Details
 
-- **Student Name:** ______________________________
-- **Register Number:** ___________________________
-- **Class / Section:** ____________________________
+- **Student Name:** _____v.sree harshini_________________________
+- **Register Number:** __250200129_________________________
+- **Class / Section:** _______section7_____________________
 - **Subject:** HTML, CSS & JavaScript
 - **Assignment:** HTML, CSS & JavaScript Practical Programs
 
